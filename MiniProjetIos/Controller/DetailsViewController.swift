@@ -40,6 +40,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var newAcutionTextField: UITextField!
     @IBOutlet weak var echerieLabel: UILabel!
     
+    
+
+    
    
     
 

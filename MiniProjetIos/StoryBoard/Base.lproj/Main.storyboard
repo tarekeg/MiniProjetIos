@@ -229,7 +229,7 @@
                     <connections>
                         <segue destination="xjB-Dr-a5H" kind="relationship" relationship="viewControllers" id="lp5-kP-NV8"/>
                         <segue destination="BID-4a-lkR" kind="relationship" relationship="viewControllers" id="9UJ-rm-mDi"/>
-                        <segue destination="IgM-Uy-BEF" kind="relationship" relationship="viewControllers" id="bX3-Z7-H2E"/>
+                        <segue destination="p7j-hO-1Ss" kind="relationship" relationship="viewControllers" id="bX3-Z7-H2E"/>
                         <segue destination="2va-aP-FYV" kind="relationship" relationship="viewControllers" id="kPB-Te-i94"/>
                         <segue destination="ZTm-Zo-YDe" kind="relationship" relationship="viewControllers" id="tjH-tw-R0g"/>
                     </connections>
@@ -1025,27 +1025,79 @@
             </objects>
             <point key="canvasLocation" x="1015.2" y="1889.5052473763119"/>
         </scene>
-        <!--My auctions-->
+        <!--Mes Transactions-->
         <scene sceneID="Q4M-9B-EHj">
             <objects>
-                <viewController id="IgM-Uy-BEF" sceneMemberID="viewController">
+                <viewController id="IgM-Uy-BEF" customClass="TransactionViewController" customModule="Auction_Master" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VXE-5v-4R2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-lg-p0A">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-lg-p0A">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YTE-GV-8EA">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="150" id="YTE-GV-8EA">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YTE-GV-8EA" id="hvh-3x-MUu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1F1-ig-QGE">
+                                                    <rect key="frame" x="20" y="118" width="94" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUR-Ig-bdg">
+                                                    <rect key="frame" x="20" y="17" width="94" height="93"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mon Enchère:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bb-8z-SBh">
+                                                    <rect key="frame" x="122" y="33" width="106" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kfC-gE-VDE">
+                                                    <rect key="frame" x="236" y="33" width="124" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Etat Enchère:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-9C-Yxe">
+                                                    <rect key="frame" x="124" y="77" width="102" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EOo-vK-NEt">
+                                                    <rect key="frame" x="236" y="77" width="124" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FS0-GN-ywW">
+                                                    <rect key="frame" x="122" y="118" width="238" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IgM-Uy-BEF" id="gSB-K4-6Ad"/>
+                                    <outlet property="delegate" destination="IgM-Uy-BEF" id="nUG-TL-tJf"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1057,11 +1109,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B8N-F2-6R1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My auctions" image="icons8-money-bag-30" id="GvF-6p-s7a"/>
+                    <navigationItem key="navigationItem" title="Mes Transactions" id="uuK-dn-VA6"/>
+                    <connections>
+                        <outlet property="tableView" destination="aOe-lg-p0A" id="xUF-tt-KsO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HQ-UA-VWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015.2" y="1889.408866995074"/>
+            <point key="canvasLocation" x="2957.5999999999999" y="1889.408866995074"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="C5q-S6-iSs">
@@ -1077,7 +1132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFy-Xt-eLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="1889.5052473763119"/>
+            <point key="canvasLocation" x="3946.4000000000001" y="1889.408866995074"/>
         </scene>
         <!--Mon Profil-->
         <scene sceneID="gCh-JN-k9d">
@@ -1312,7 +1367,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wr-Lp-5dC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4996" y="1888.6699507389164"/>
+            <point key="canvasLocation" x="5938.3999999999996" y="1888.6699507389164"/>
         </scene>
         <!--Sell-->
         <scene sceneID="Li8-O2-oOz">
@@ -1393,7 +1448,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rx3-fD-drr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4053.5999999999999" y="1888.6699507389164"/>
+            <point key="canvasLocation" x="4996" y="1888.6699507389164"/>
+        </scene>
+        <!--My auctions-->
+        <scene sceneID="TuK-tE-8tj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p7j-hO-1Ss" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My auctions" image="icons8-money-bag-30" id="GvF-6p-s7a"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KL0-Uz-ZDw">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IgM-Uy-BEF" kind="relationship" relationship="rootViewController" id="ngv-2I-H94"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fGp-47-7jw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015.2" y="1889.408866995074"/>
         </scene>
     </scenes>
     <resources>

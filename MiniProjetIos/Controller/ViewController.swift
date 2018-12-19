@@ -91,9 +91,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInDeleg
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         
-        if((GIDSignIn.sharedInstance()?.hasAuthInKeychain())!){
-            performSegue(withIdentifier: "toHome", sender: nil)
-        }
+       
         
         if let error = error {
             print("\(error.localizedDescription)")
@@ -113,8 +111,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInDeleg
             let urlString = request.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             Alamofire.request(urlString!,method: .post)
             
-            performSegue(withIdentifier: "continueLog", sender: nil)
-        }
+            performSegue(withIdentifier: "toHome", sender: nil)
+            }
     }
     
     
