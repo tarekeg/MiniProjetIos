@@ -70,12 +70,11 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             indication.text = "Vous etes le meilleur enchériesseur"
         }
-        
-
-        
-
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetails", sender: indexPath)
     }
     
     
@@ -103,6 +102,28 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             return nil
         }
         return String(data: data, encoding: String.Encoding.utf8)
+    }
+    
+    
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let index = sender as? NSIndexPath
+        
+        let productId = self.data[index!.row]["Id"].intValue
+            print(productId)
+        
+        
+        if segue.identifier == "toDetails"{
+            
+            
+            if let destinationVC =  segue.destination as? DetailsViewController{
+                
+                destinationVC.id = productId
+            }
+        }
+        
     }
 
 }

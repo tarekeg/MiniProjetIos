@@ -40,9 +40,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imageToAdd: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Ajout Images"
-     
+             
    
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(tapGesture1))
         imageToAdd.addGestureRecognizer(tap1)

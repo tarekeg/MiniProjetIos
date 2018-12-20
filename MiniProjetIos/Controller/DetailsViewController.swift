@@ -10,14 +10,11 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import CoreData
 
 class DetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var images : [UIImage] = []
-    
-   
-    
-    
     var id : Int?
     var product : NSArray = []
     var dateFinAuction : String?
@@ -279,7 +276,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
 
 }
     func getImages(){
-        
+        print(String(self.id!))
         print("http://192.168.0.111:3000/getimages/" + String(id!))
         Alamofire.request("http://192.168.0.111:3000/getimages/" + String(id!), method: .get).responseJSON { response in
             
@@ -312,6 +309,11 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             }
         }
         return 0
+    }
+    
+    
+    @IBAction func addToFavorite(_ sender: Any) {
+        
     }
     
     

@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Acceuil"
+//        self.title = "Acceuil"
         tableView.reloadData()
         
     }
@@ -62,6 +62,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             cell.collectionView.tag = indexPath.section
+            cell.collectionView.reloadData()
             
             
             if(cell.collectionView.tag == 0){
@@ -383,7 +384,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             if let destinationVC =  segue.destination as? DetailsViewController{
                 
-                destinationVC.id = productId
+                destinationVC.id = productId!
+                print(productId!)
             }
         }
 

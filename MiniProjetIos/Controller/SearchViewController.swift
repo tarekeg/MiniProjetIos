@@ -76,6 +76,29 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetails", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let index = sender as? NSIndexPath
+        
+        let product = currentArray[index!.item]
+        
+        let productId = product.id
+        
+        
+        if segue.identifier == "toDetails"{
+            
+            
+            if let destinationVC =  segue.destination as? DetailsViewController{
+                
+                destinationVC.id = productId
+            }
+        }
+        
+    }
   
 }
 

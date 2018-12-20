@@ -31,7 +31,6 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     var Images : [UIImage]?
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var warnPriceLabel: UILabel!
     @IBOutlet weak var warnLabelSubCategory: UILabel!
     @IBOutlet weak var warnLabelCategory: UILabel!
@@ -57,7 +56,6 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         
         self.title = "Achat immédiat"
-        activityIndicator.isHidden = true
         productCategoryTextField.delegate = self
         productSubCategoryTextField.delegate = self
         imageWarnName.isHidden = true
@@ -411,9 +409,13 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
                 let productPrice = self.productPriceTextField.text
                 
-                let description = self.productDescriptionTextView.text
+            var description = self.productDescriptionTextView.text
                 
                 let idValue = UserDefaults.standard.string(forKey: "idUser")
+            
+            if((description?.isEmpty)!){
+                description = "Champs vide"
+            }
                 
             let firstPart = self.url + "addproduct/" + idValue! + "/"
                 
@@ -442,24 +444,20 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         case . success(request: let upload, streamingFromDisk: _, streamFileURL: _):
                             upload.uploadProgress(closure: { (progress) in
                                 print(progress)
-                                self.activityIndicator.isHidden = false
-                                self.activityIndicator.startAnimating()
-                                if(progress.isFinished == true){
-                                    self.activityIndicator.isHidden = true
-                                    self.activityIndicator.stopAnimating()
-                                }
+                                
                             }
                                 
                             )}
                     }
                 }
             }
+         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
         let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         let appDelegate = UIApplication.shared.delegate
         appDelegate?.window??.rootViewController = homePage
+        }
         
 
-     //   self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
 
 }
 

@@ -454,9 +454,16 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 let productPrice = self.productPriceTextField.text
                 
                 
-                let description = self.productDescriptionTextView.text
+            var description = self.productDescriptionTextView.text
                 
-                let minEnchere = self.productMinimumPriceTextField.text
+            var minEnchere = self.productMinimumPriceTextField.text
+            
+            if((minEnchere?.isEmpty)!){
+                minEnchere = "0"
+            }
+            if((description?.isEmpty)!){
+                description = "Champs vide"
+            }
         
                 
                 let requestFinal = self.baseUrl + "addproductauction/" + idValue! + "/" + nameProduct! + "/" + category! + "/" + subCategory! + "/" + productPrice! + "/" + minEnchere! + "/" + String(self.auctionSeconds!) + "/2/" + description!
@@ -464,6 +471,8 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 
                 let urlString = requestFinal.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
                 print(urlString!)
+            
+            print("l url auction add product = " + urlString!)
                 
                 Alamofire.request(urlString!)
                 
@@ -489,13 +498,13 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 
      
             }
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             let appDelegate = UIApplication.shared.delegate
             appDelegate?.window??.rootViewController = homePage
         }
         
-
+        }
 
     }
     
