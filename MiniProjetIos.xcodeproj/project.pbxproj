@@ -14,6 +14,7 @@
 		F50AC52521B3CFDF00460457 /* DirectSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC52421B3CFDF00460457 /* DirectSellViewController.swift */; };
 		F50AC52721B3F69D00460457 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */; };
 		F55BE10221C8EC5700FD6AAE /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */; };
+		F55BE10421CB9BBD00FD6AAE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */; };
 		F59C0A4121C5C15B001BFD98 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C0A4021C5C15B001BFD98 /* ProfileTableViewController.swift */; };
 		F5B357CD21C3F92E00A4B380 /* ContinueLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B357CC21C3F92E00A4B380 /* ContinueLoginViewController.swift */; };
 		F5BFAA3F21ADB03A0006D16F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFAA3E21ADB03A0006D16F /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		F50AC52421B3CFDF00460457 /* DirectSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectSellViewController.swift; sourceTree = "<group>"; };
 		F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F57929C221AE2B7C00B1D5E0 /* MiniProjetIos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniProjetIos.entitlements; sourceTree = "<group>"; };
 		F59C0A4021C5C15B001BFD98 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F5B357CC21C3F92E00A4B380 /* ContinueLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueLoginViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				F5F56ACB21BC4DDB009B8938 /* ProductCell.swift */,
 				F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */,
 				F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */,
+				F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				F5BFAA4121ADB03A0006D16F /* ViewController.swift in Sources */,
 				F5FCC0A921BA7B1C007F0477 /* PhotoCell.swift in Sources */,
 				F50AC52721B3F69D00460457 /* UITextField+Extensions.swift in Sources */,
+				F55BE10421CB9BBD00FD6AAE /* SearchViewController.swift in Sources */,
 				F5BFAA4721ADB03A0006D16F /* MiniProjetIos.xcdatamodeld in Sources */,
 				F50AC52321B3CFCB00460457 /* AuctionSellViewController.swift in Sources */,
 				F5FA66BC21BBDC310037C9FA /* HomeViewController.swift in Sources */,
