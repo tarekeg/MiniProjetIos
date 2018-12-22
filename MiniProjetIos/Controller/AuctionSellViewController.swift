@@ -69,7 +69,7 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
         super.viewDidLoad()
         
         self.title = "Enchères"
-        
+        self.hideKeyboardWhenTappedAround()
         productCategoryTextField.delegate = self
         productSubCategoryTextField.delegate = self
         productAuctionDurationTextField.delegate = self

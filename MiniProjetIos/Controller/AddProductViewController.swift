@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class AddProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
+    @IBOutlet weak var validateButton: UIButton!
     
     fileprivate let cellIdentifier = "PhotoCell"
  
@@ -145,12 +146,17 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDirectSell"{
+            
+            
+            
             let destinationVC = segue.destination as? DirectSellViewController
             
             destinationVC?.Images = imageArray
             
         }
         if segue.identifier == "toAuctionSell"{
+            
+            
             
             let destinationVC = segue.destination as? AuctionSellViewController
             

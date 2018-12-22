@@ -37,6 +37,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         cancelBarButtonItem.isEnabled = false
         cancelBarButtonItem.title = ""
         changeProfilePicture.isHidden = true
@@ -264,6 +265,18 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
         
         
         
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
     

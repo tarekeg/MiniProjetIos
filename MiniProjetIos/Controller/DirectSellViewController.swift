@@ -54,7 +54,7 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         self.title = "Achat immédiat"
         productCategoryTextField.delegate = self
         productSubCategoryTextField.delegate = self
