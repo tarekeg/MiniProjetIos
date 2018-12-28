@@ -15,7 +15,7 @@ import SwiftyJSON
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
    
     
-    let baseUrl = "http://192.168.0.111:3000/"
+    let baseUrl = Common.Global.LOCAL + "/"
     var productsArray : NSArray = []
     var currentArray = [Product]()
     var products = [Product]()

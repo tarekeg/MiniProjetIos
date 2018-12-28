@@ -14,5 +14,7 @@ target 'MiniProjetIos' do
     	pod 'IQKeyboardManagerSwift'
     	pod 'AlamofireImage'
 	pod 'GoogleSignIn'
+	pod 'MBProgressHUD'
+	pod 'PKHUD'
 
 end

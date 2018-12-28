@@ -22,8 +22,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var productsArrayLoisirs : NSArray = []
     var products : NSArray = []
     var productId : Int?
+    var productImages : [UIImage] = []
+    let group = DispatchGroup()
 
-    let baseUrl = "http://192.168.0.111:3000"
+
+    let baseUrl = Common.Global.LOCAL
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -154,6 +157,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         }
     }
+    
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -191,7 +196,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let immo  = productsArrayImmo[indexPath.item] as! Dictionary<String,Any>
             cell.productNameLabel.text = immo["Name"] as? String
             let urlImage = immo["first_image_path"] as? String
-            
             cell.imageProduct.af_setImage(withURL: URL(string: urlImage!)!)
             cell.imageProduct.layer.cornerRadius = 20.0
             cell.imageProduct.clipsToBounds = true
@@ -365,31 +369,88 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         }
         
-        self.performSegue(withIdentifier: "toDetails", sender: indexPath)
+        let product = products[indexPath.item] as! Dictionary<String,Any>
+        
+        if(product["Type_vente"] as? Int == 1){
+            print("toAchatImmediat")
+            self.performSegue(withIdentifier: "toDirectSell", sender: indexPath)
+        } else {
+            print("toAuction")
+            self.performSegue(withIdentifier: "toDetails", sender: indexPath)
+
+        }
+        
         
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         let index = sender as? NSIndexPath
+    
+       
+
         
-        let product = products[index!.item] as! Dictionary<String,Any>
-        
-        productId = product["Id"] as? Int
-        print(productId!)
-        
+
         
         if segue.identifier == "toDetails"{
             
+            let product = products[index!.item] as! Dictionary<String,Any>
+            productId = product["Id"] as? Int
             
             if let destinationVC =  segue.destination as? DetailsViewController{
-                
                 destinationVC.id = productId!
-                print(productId!)
+
             }
         }
+        if segue.identifier == "toDirectSell"{
+            
+            let product = products[index!.item] as! Dictionary<String,Any>
+            productId = product["Id"] as? Int
+            
+            if let destinationVC =  segue.destination as? DetailsDirectSellViewController{
+                destinationVC.id = productId!
+              
+                }
+            }
+            
+        }
+    
+    
 
 }
+
     
-}
+//    func getImages(id: Int, completionHandler:@escaping ([UIImage ]?, Error?) -> Void){
+//        print(String(id))
+//        Alamofire.request("http://192.168.0.111:3000/getimages/" + String(id)).responseJSON { response in
+//            let jsonResult = JSON(response.result.value!)
+//            for i in 0...jsonResult.count - 1{
+//                let remoteImageURL = URL(string:jsonResult[i]["image_url"].stringValue )!
+//                Alamofire.request(remoteImageURL).responseData { response in
+//
+//                    print(response.result)
+//                    if let data = response.data {
+//                        do {
+//                            //                            self.downloadImage.image = UIImage(data:data)
+//                            self.productImages.append(UIImage(data:data)!)
+//                            print(self.productImages.count)
+//                            completionHandler(self.productImages, nil)
+//                        } catch {
+//                            completionHandler(nil,error)
+//                        }
+//                    }
+//                }
+//            }
+//
+//        }
+//        }
+
+
+
+
+
+
+
+
 

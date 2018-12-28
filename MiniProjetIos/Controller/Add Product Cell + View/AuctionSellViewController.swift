@@ -35,7 +35,7 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var Images : [UIImage]?
     
-    let baseUrl = "http://192.168.0.111:3000/"
+    let baseUrl = Common.Global.LOCAL + "/"
     var picker : UIPickerView!
     var activeTextField = 0
     var activeTF : UITextField!

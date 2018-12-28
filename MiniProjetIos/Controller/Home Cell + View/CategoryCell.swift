@@ -12,7 +12,6 @@ import AlamofireImage
 
 class CategoryCell: UITableViewCell {
     
-    let baseUrl = "http://172.20.10.3:3000"
 
 
     @IBOutlet weak var collectionView: UICollectionView!

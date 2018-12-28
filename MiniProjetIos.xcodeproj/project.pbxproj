@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		31649D9B3FD44A14DE8AD87B /* Pods_MiniProjetIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E603E8C169C39448E0B5B4 /* Pods_MiniProjetIos.framework */; };
-		F50AC51F21B1D0AC00460457 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC51E21B1D0AC00460457 /* ProfileViewController.swift */; };
 		F50AC52121B1E2F300460457 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC52021B1E2F300460457 /* AddProductViewController.swift */; };
 		F50AC52321B3CFCB00460457 /* AuctionSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC52221B3CFCB00460457 /* AuctionSellViewController.swift */; };
 		F50AC52521B3CFDF00460457 /* DirectSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC52421B3CFDF00460457 /* DirectSellViewController.swift */; };
 		F50AC52721B3F69D00460457 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */; };
+		F53B1BBE21D6381300CE56D0 /* CommentaryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B1BBD21D6381300CE56D0 /* CommentaryDetailsViewController.swift */; };
 		F55BE10221C8EC5700FD6AAE /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */; };
 		F55BE10421CB9BBD00FD6AAE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */; };
 		F59C0A4121C5C15B001BFD98 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C0A4021C5C15B001BFD98 /* ProfileTableViewController.swift */; };
@@ -23,6 +23,10 @@
 		F5BFAA4721ADB03A0006D16F /* MiniProjetIos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5BFAA4521ADB03A0006D16F /* MiniProjetIos.xcdatamodeld */; };
 		F5BFAA4921ADB03B0006D16F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5BFAA4821ADB03B0006D16F /* Assets.xcassets */; };
 		F5BFAA4C21ADB03B0006D16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5BFAA4A21ADB03B0006D16F /* LaunchScreen.storyboard */; };
+		F5C1C41A21CE976D00BDCD04 /* DetailsDirectSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C41921CE976D00BDCD04 /* DetailsDirectSellViewController.swift */; };
+		F5C1C42421D0DAFA00BDCD04 /* CommentaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C42321D0DAFA00BDCD04 /* CommentaryViewController.swift */; };
+		F5C1C42821D0E16D00BDCD04 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C42721D0E16D00BDCD04 /* Common.swift */; };
+		F5C1C42A21D11CA700BDCD04 /* MyCommentariesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */; };
 		F5C786D021BDD53400870C1F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C786CF21BDD53400870C1F /* DetailsViewController.swift */; };
 		F5D0ABA921C3C13C00CFBD46 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5D0ABA821C3C13C00CFBD46 /* credentials.plist */; };
 		F5F56ACA21BC4DB7009B8938 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F56AC921BC4DB7009B8938 /* CategoryCell.swift */; };
@@ -35,11 +39,11 @@
 		9623FBED9EF65F2B69EB96E5 /* Pods-MiniProjetIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniProjetIos.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiniProjetIos/Pods-MiniProjetIos.release.xcconfig"; sourceTree = "<group>"; };
 		96D2C58961CBF8EE812F1F50 /* Pods-MiniProjetIos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniProjetIos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiniProjetIos/Pods-MiniProjetIos.debug.xcconfig"; sourceTree = "<group>"; };
 		E1E603E8C169C39448E0B5B4 /* Pods_MiniProjetIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniProjetIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F50AC51E21B1D0AC00460457 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F50AC52021B1E2F300460457 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		F50AC52221B3CFCB00460457 /* AuctionSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionSellViewController.swift; sourceTree = "<group>"; };
 		F50AC52421B3CFDF00460457 /* DirectSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectSellViewController.swift; sourceTree = "<group>"; };
 		F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		F53B1BBD21D6381300CE56D0 /* CommentaryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryDetailsViewController.swift; sourceTree = "<group>"; };
 		F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F57929C221AE2B7C00B1D5E0 /* MiniProjetIos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniProjetIos.entitlements; sourceTree = "<group>"; };
@@ -53,6 +57,10 @@
 		F5BFAA4821ADB03B0006D16F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5BFAA4B21ADB03B0006D16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5BFAA4D21ADB03B0006D16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5C1C41921CE976D00BDCD04 /* DetailsDirectSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDirectSellViewController.swift; sourceTree = "<group>"; };
+		F5C1C42321D0DAFA00BDCD04 /* CommentaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryViewController.swift; sourceTree = "<group>"; };
+		F5C1C42721D0E16D00BDCD04 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentariesTableViewController.swift; sourceTree = "<group>"; };
 		F5C786CF21BDD53400870C1F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F5D0ABA821C3C13C00CFBD46 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		F5F56AC921BC4DB7009B8938 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -93,22 +101,20 @@
 		F50AC51B21B1D01900460457 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F5C1C40721CE468000BDCD04 /* Login */,
+				F5C1C40521CE45F100BDCD04 /* Home Cell + View */,
+				F5C1C40621CE462900BDCD04 /* Add Product Cell + View */,
 				F5BFAA3E21ADB03A0006D16F /* AppDelegate.swift */,
-				F5BFAA4021ADB03A0006D16F /* ViewController.swift */,
-				F5B357CC21C3F92E00A4B380 /* ContinueLoginViewController.swift */,
-				F5FA66BB21BBDC310037C9FA /* HomeViewController.swift */,
 				F5C786CF21BDD53400870C1F /* DetailsViewController.swift */,
-				F50AC52021B1E2F300460457 /* AddProductViewController.swift */,
-				F50AC52221B3CFCB00460457 /* AuctionSellViewController.swift */,
-				F50AC52421B3CFDF00460457 /* DirectSellViewController.swift */,
-				F50AC51E21B1D0AC00460457 /* ProfileViewController.swift */,
+				F5C1C41921CE976D00BDCD04 /* DetailsDirectSellViewController.swift */,
 				F59C0A4021C5C15B001BFD98 /* ProfileTableViewController.swift */,
-				F5FCC0A821BA7B1C007F0477 /* PhotoCell.swift */,
-				F5F56AC921BC4DB7009B8938 /* CategoryCell.swift */,
-				F5F56ACB21BC4DDB009B8938 /* ProductCell.swift */,
-				F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */,
 				F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */,
 				F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */,
+				F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */,
+				F5C1C42321D0DAFA00BDCD04 /* CommentaryViewController.swift */,
+				F5C1C42721D0E16D00BDCD04 /* Common.swift */,
+				F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */,
+				F53B1BBD21D6381300CE56D0 /* CommentaryDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -160,6 +166,36 @@
 				F5D0ABA821C3C13C00CFBD46 /* credentials.plist */,
 			);
 			path = MiniProjetIos;
+			sourceTree = "<group>";
+		};
+		F5C1C40521CE45F100BDCD04 /* Home Cell + View */ = {
+			isa = PBXGroup;
+			children = (
+				F5FA66BB21BBDC310037C9FA /* HomeViewController.swift */,
+				F5F56AC921BC4DB7009B8938 /* CategoryCell.swift */,
+				F5F56ACB21BC4DDB009B8938 /* ProductCell.swift */,
+			);
+			path = "Home Cell + View";
+			sourceTree = "<group>";
+		};
+		F5C1C40621CE462900BDCD04 /* Add Product Cell + View */ = {
+			isa = PBXGroup;
+			children = (
+				F50AC52021B1E2F300460457 /* AddProductViewController.swift */,
+				F5FCC0A821BA7B1C007F0477 /* PhotoCell.swift */,
+				F50AC52221B3CFCB00460457 /* AuctionSellViewController.swift */,
+				F50AC52421B3CFDF00460457 /* DirectSellViewController.swift */,
+			);
+			path = "Add Product Cell + View";
+			sourceTree = "<group>";
+		};
+		F5C1C40721CE468000BDCD04 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F5BFAA4021ADB03A0006D16F /* ViewController.swift */,
+				F5B357CC21C3F92E00A4B380 /* ContinueLoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +291,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -269,6 +307,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,18 +372,22 @@
 				F50AC52721B3F69D00460457 /* UITextField+Extensions.swift in Sources */,
 				F55BE10421CB9BBD00FD6AAE /* SearchViewController.swift in Sources */,
 				F5BFAA4721ADB03A0006D16F /* MiniProjetIos.xcdatamodeld in Sources */,
+				F53B1BBE21D6381300CE56D0 /* CommentaryDetailsViewController.swift in Sources */,
+				F5C1C41A21CE976D00BDCD04 /* DetailsDirectSellViewController.swift in Sources */,
 				F50AC52321B3CFCB00460457 /* AuctionSellViewController.swift in Sources */,
 				F5FA66BC21BBDC310037C9FA /* HomeViewController.swift in Sources */,
 				F59C0A4121C5C15B001BFD98 /* ProfileTableViewController.swift in Sources */,
 				F50AC52521B3CFDF00460457 /* DirectSellViewController.swift in Sources */,
 				F50AC52121B1E2F300460457 /* AddProductViewController.swift in Sources */,
-				F50AC51F21B1D0AC00460457 /* ProfileViewController.swift in Sources */,
 				F5F56ACC21BC4DDB009B8938 /* ProductCell.swift in Sources */,
 				F5BFAA3F21ADB03A0006D16F /* AppDelegate.swift in Sources */,
 				F5C786D021BDD53400870C1F /* DetailsViewController.swift in Sources */,
+				F5C1C42A21D11CA700BDCD04 /* MyCommentariesTableViewController.swift in Sources */,
 				F5F56ACA21BC4DB7009B8938 /* CategoryCell.swift in Sources */,
+				F5C1C42821D0E16D00BDCD04 /* Common.swift in Sources */,
 				F5B357CD21C3F92E00A4B380 /* ContinueLoginViewController.swift in Sources */,
 				F55BE10221C8EC5700FD6AAE /* TransactionViewController.swift in Sources */,
+				F5C1C42421D0DAFA00BDCD04 /* CommentaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

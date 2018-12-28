@@ -46,7 +46,7 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var productNameTextField: UITextField!
     
     
-    let url = "http://192.168.0.111:3000/"
+    let url = Common.Global.LOCAL + "/"
     var picker : UIPickerView!
     var activeTextField = 0
     var activeTF : UITextField!
@@ -452,9 +452,10 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
             }
          DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        let appDelegate = UIApplication.shared.delegate
-        appDelegate?.window??.rootViewController = homePage
+//        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//        let appDelegate = UIApplication.shared.delegate
+            // appDelegate?.window??.rootViewController = homePage
+            self.dismiss(animated: true, completion: nil)
         }
         
 

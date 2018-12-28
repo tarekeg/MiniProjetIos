@@ -37,6 +37,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = false
         self.hideKeyboardWhenTappedAround()
         cancelBarButtonItem.isEnabled = false
         cancelBarButtonItem.title = ""
@@ -104,7 +105,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
         let defaults = UserDefaults.standard
         if let idValue = defaults.string(forKey: "idUser"){
             print(idValue)
-            let url = "http://192.168.0.111:3000/getuser/"+idValue
+            let url = Common.Global.LOCAL + "/getuser/"+idValue
             print(url)
             Alamofire.request(url, method: .get).responseJSON{
                 response in
@@ -193,7 +194,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
         let imageData = self.picker_image!.jpegData(compressionQuality: 0.5)
         Alamofire.upload(multipartFormData: { (MultipartFormData) in
             MultipartFormData.append(imageData!, withName: "myImage", fileName: "image.jpeg", mimeType: "image/jpeg")
-        }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to:"http://192.168.0.111:3000/uploadprofilepic/"+UserDefaults.standard.string(forKey: "idUser")!, method: .post, headers: nil) { (result: SessionManager.MultipartFormDataEncodingResult) in
+        }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to:Common.Global.LOCAL + "/uploadprofilepic/"+UserDefaults.standard.string(forKey: "idUser")!, method: .post, headers: nil) { (result: SessionManager.MultipartFormDataEncodingResult) in
             switch result {
             case .failure(let error):
                 print(error)
@@ -213,6 +214,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
         cancelBarButtonItem.title = "Annuler"
         cancelBarButtonItem.isEnabled = true
         updateBarButtonItem.title = "OK"
+        tableView.allowsSelection = true
         nameTextField.isUserInteractionEnabled = true
         lastNameTextField.isUserInteractionEnabled = true
         emailTextField.isUserInteractionEnabled = true
@@ -229,12 +231,12 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
             let address = addressTextField.text
             let defaults = UserDefaults.standard
             if let idValue = defaults.string(forKey: "idUser"){
-                let url = "http://192.168.0.111:3000/updateuserprofile/"+idValue+"/"+firstName!+"/"+lastName!+"/"+email!+"/"+phoneNumber!+"/"+address!
+                let url = Common.Global.LOCAL + "/updateuserprofile/"+idValue+"/"+firstName!+"/"+lastName!+"/"+email!+"/"+phoneNumber!+"/"+address!
                 let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
                 print(urlString!)
                 Alamofire.request(urlString!, method: .post)
             }
-            
+            tableView.allowsSelection = false
             cancelBarButtonItem.title = ""
             cancelBarButtonItem.isEnabled = false
             updateBarButtonItem.title = "Modifier"

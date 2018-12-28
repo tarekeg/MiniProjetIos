@@ -103,7 +103,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInDeleg
             let pictureUrl = user.profile.imageURL(withDimension: 120)
             let defaults = UserDefaults.standard
             defaults.setValue(userId!, forKey: "idUser")
-            let request = "http://192.168.0.111:3000/adduser/\(userId!)/\(givenName!)/\(familyName!)/\(email!)/2"
+            let request = Common.Global.LOCAL + "/adduser/\(userId!)/\(givenName!)/\(familyName!)/\(email!)/2"
             
             defaults.set(pictureUrl?.absoluteString, forKey: "profileImg")
             defaults.setValue("google", forKey: "typeConnexion")
@@ -147,7 +147,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInDeleg
             
             let email = resultJson["email"].stringValue
             
-            Alamofire.request("http://192.168.0.111:3000/adduser/\(uid)/\(firstName)/\(lastName)/\(email)/1", method: .post)
+            Alamofire.request(Common.Global.LOCAL + "/adduser/\(uid)/\(firstName)/\(lastName)/\(email)/1", method: .post)
             
 
             

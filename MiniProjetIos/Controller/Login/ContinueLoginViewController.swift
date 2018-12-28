@@ -24,7 +24,7 @@ class ContinueLoginViewController: UIViewController {
         let trimmedPhoneNumber = phoneNumber!.trimmingCharacters(in: .whitespacesAndNewlines)
         let defaults = UserDefaults.standard
         if let idValue = defaults.string(forKey: "idUser"){
-            let url = "http://192.168.0.111:3000/addphonenumber/"+idValue+"/"+trimmedPhoneNumber
+            let url = Common.Global.LOCAL + "/addphonenumber/"+idValue+"/"+trimmedPhoneNumber
         
             Alamofire.request(url, method: .post)
             

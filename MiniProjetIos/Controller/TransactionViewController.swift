@@ -17,7 +17,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     var productArray : NSArray = []
     var transactionArray : NSArray = []
     var data: [JSON] = []
-    let baseUrl = "http://192.168.0.111:3000/"
+    let baseUrl = Common.Global.LOCAL + "/"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -62,14 +62,25 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         labelName.text = self.data[indexPath.row]["Name"].stringValue
         let myAuction = transaction["Enchere"] as! Double
         let prix = self.data[indexPath.row]["PrixEnchere"].double
+        let dateFinAuction = self.data[indexPath.row]["DateFin"].string
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let yourDate = formatter.date(from: dateFinAuction!)
+        let currentDateTime = Date()
+        let diffInSeconds = Calendar.current.dateComponents([.second], from:currentDateTime , to: yourDate!).second
         labelAuction.text = "\(prix!) DT"
         labelMyAuction.text = "\(myAuction) DT"
         
-        if(prix! > myAuction){
-            indication.text = "Vous n'etes pas le meilleur enchériesseur"
-        } else {
-            indication.text = "Vous etes le meilleur enchériesseur"
+        if (prix! > myAuction && diffInSeconds! < 0) {
+            indication.text = "Vous avez perdu l'enchère"
+        } else if (prix! <= myAuction && diffInSeconds! < 0){
+            indication.text = "Félicatation vous avez gagné l'enchère"
+        } else if (prix! > myAuction && diffInSeconds! > 0){
+            indication.text = "Vous n'êtes pas le meilleur enchériesseur"
+        } else if (prix! <= myAuction && diffInSeconds! > 0){
+            indication.text = "Vous êtes le meilleur enchériesseur"
         }
+        
         return cell
     }
     
@@ -83,16 +94,19 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         Alamofire.request(self.baseUrl + "gettransaction/" + UserDefaults.standard.string(forKey: "idUser")!).responseJSON { response in
             let resultJson = JSON(response.result.value!)
             self.transactionArray = response.result.value as! NSArray
-            for index in 0...self.transactionArray.count - 1{
-                let idProduct : Int = resultJson[index]["Id_product"].intValue
-            print(idProduct)
-            Alamofire.request(self.baseUrl + "getproduct/" + String(idProduct)).responseJSON{ response in
-                self.data = self.data + JSON(response.result.value!).arrayValue
-                self.tableView.reloadData()
-
+            if self.transactionArray.count != 0{
+                for index in 0...self.transactionArray.count - 1{
+                    let idProduct : Int = resultJson[index]["Id_product"].intValue
+                    print(idProduct)
+                    Alamofire.request(self.baseUrl + "getproduct/" + String(idProduct)).responseJSON{ response in
+                        self.data = self.data + JSON(response.result.value!).arrayValue
+                        self.tableView.reloadData()
+                        
+                    }
+                    
                 }
-
             }
+            
         }
 
         
