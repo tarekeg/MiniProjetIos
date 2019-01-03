@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import FBSDKLoginKit
 import SwiftyJSON
-
+import PKHUD
 class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
     let categoriesArray = ["Immobilier","Véhicules","Pour la Maison et Jardin","Loisirs et Divertissement","Informatique et Multimédia","Habillement et Bien Etre","Autres"]
@@ -390,7 +390,6 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
             else {
             
-            
             imageWarnName.isHidden = true
             imageWarnCategory.isHidden = true
             imageWarnSubCategory.isHidden = true
@@ -450,17 +449,18 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
                             )}
                     }
                 }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = homePage
             }
-         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-//        let appDelegate = UIApplication.shared.delegate
-            // appDelegate?.window??.rootViewController = homePage
-            self.dismiss(animated: true, completion: nil)
+            HUD.show(.progress)
+            HUD.flash(.success , delay: 1.0)
+
         }
-        
 
-
-}
+    }
+    
 
 }
 

@@ -13,6 +13,7 @@ import GoogleSignIn
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
+import PKHUD
 
 class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelegate, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
@@ -95,8 +96,10 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
     @IBAction func googleSignOutTapped(_ sender: Any) {
 //        GIDSignIn.sharedInstance().hasAuthInKeychain() = false
         GIDSignIn.sharedInstance()?.disconnect()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        HUD.show(.progress)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            HUD.hide()
 
         }
     }
@@ -119,6 +122,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
                     let urlPath = UserDefaults.standard.string(forKey: "profileImg")
                     let url = URL(string: urlPath!)
                     self.downloadImage(from: url!)
+                   
                     }
                 
                 let userFirstName = user["FirstName"] as! String

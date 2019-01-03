@@ -11,6 +11,6 @@ import UIKit
 class Common: NSObject {
     
          struct Global {
-            static let LOCAL = "http://192.168.0.101:3000"
+            static let LOCAL = "http://192.168.1.50:3000"
         }
 }
