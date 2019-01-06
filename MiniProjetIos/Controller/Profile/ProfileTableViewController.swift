@@ -48,7 +48,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
         imagePicker.delegate = self
         let urlPath = UserDefaults.standard.string(forKey: "profileImg")
         getData()
-        profileImageView.layer.cornerRadius = 35.0
+        profileImageView.layer.cornerRadius = 52.5
         profileImageView.clipsToBounds = true
         if(urlPath == nil){
         if let url = URL(string: urlPath!) {

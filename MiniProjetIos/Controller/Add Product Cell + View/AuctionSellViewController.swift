@@ -51,11 +51,6 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var warnDurationLabel: UILabel!
     @IBOutlet weak var warnPriceLabel: UILabel!
     
-    @IBOutlet weak var imageWarnName: UIImageView!
-    @IBOutlet weak var imageWarnCategory: UIImageView!
-    @IBOutlet weak var imageWarnSubCategory: UIImageView!
-    @IBOutlet weak var imageWarnPrice: UIImageView!
-    @IBOutlet weak var imageWarnAuctionDuration: UIImageView!
     
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet weak var productCategoryTextField: UITextField!
@@ -74,11 +69,6 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
         productCategoryTextField.delegate = self
         productSubCategoryTextField.delegate = self
         productAuctionDurationTextField.delegate = self
-        imageWarnName.isHidden = true
-        imageWarnCategory.isHidden = true
-        imageWarnSubCategory.isHidden = true
-        imageWarnPrice.isHidden = true
-        imageWarnAuctionDuration.isHidden = true
         warnLabelName.isHidden = true
         warnPriceLabel.isHidden = true
         warnLabelCategory.isHidden = true
@@ -366,59 +356,49 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
             
             if(textPrice?.rangeOfCharacter(from: letterCharacters) != nil || productPriceTextField.text == ""){
                 
-                imageWarnPrice.isHidden = false
                 warnPriceLabel.isHidden = false
                 
             } else {
                 
-                imageWarnPrice.isHidden = true
                 warnPriceLabel.isHidden = true
                 
             }
             
             if(productNameTextField.text == ""){
                 
-                imageWarnName.isHidden = false
                 warnLabelName.isHidden = false
                 
             } else {
                 
-                imageWarnName.isHidden = true
                 warnLabelName.isHidden = true
                 
             }
             
             if(productCategoryTextField.text == ""){
                 
-                imageWarnCategory.isHidden = false
                 warnLabelCategory.isHidden = false
                 
             } else {
                 
-                imageWarnCategory.isHidden = true
                 warnLabelCategory.isHidden = true
                 
             }
             
             if(productSubCategoryTextField.text == ""){
                 
-                imageWarnSubCategory.isHidden = false
                 warnLabelSubCategory.isHidden = false
                 
             } else {
                 
-                imageWarnSubCategory.isHidden = true
                 warnLabelSubCategory.isHidden = true
                 
             }
             if(productAuctionDurationTextField.text == ""){
                 
-                imageWarnAuctionDuration.isHidden = false
                 warnDurationLabel.isHidden = false
         
             } else {
                 
-                imageWarnAuctionDuration.isHidden = true
                 warnDurationLabel.isHidden = true
                 
             }
@@ -434,11 +414,6 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         else {
             
-            
-            imageWarnName.isHidden = true
-            imageWarnCategory.isHidden = true
-            imageWarnSubCategory.isHidden = true
-            imageWarnPrice.isHidden = true
             warnLabelName.isHidden = true
             warnLabelCategory.isHidden = true
             warnLabelSubCategory.isHidden = true

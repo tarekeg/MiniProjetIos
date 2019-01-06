@@ -35,10 +35,6 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var warnLabelSubCategory: UILabel!
     @IBOutlet weak var warnLabelCategory: UILabel!
     @IBOutlet weak var warnLabelName: UILabel!
-    @IBOutlet weak var imageWarnPrice: UIImageView!
-    @IBOutlet weak var imageWarnSubCategory: UIImageView!
-    @IBOutlet weak var imageWarnCategory: UIImageView!
-    @IBOutlet weak var imageWarnName: UIImageView!
     @IBOutlet weak var productPriceTextField: UITextField!
     @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var productSubCategoryTextField: UITextField!
@@ -58,10 +54,6 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.title = "Achat immédiat"
         productCategoryTextField.delegate = self
         productSubCategoryTextField.delegate = self
-        imageWarnName.isHidden = true
-        imageWarnCategory.isHidden = true
-        imageWarnSubCategory.isHidden = true
-        imageWarnPrice.isHidden = true
         warnLabelName.isHidden = true
         warnLabelCategory.isHidden = true
         warnLabelSubCategory.isHidden = true
@@ -337,48 +329,40 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
             if(textPrice?.rangeOfCharacter(from: letterCharacters) != nil || productPriceTextField.text == ""){
                 
-                imageWarnPrice.isHidden = false
                 warnPriceLabel.isHidden = false
                 
             } else {
                 
-                imageWarnPrice.isHidden = true
                 warnPriceLabel.isHidden = true
                     
                 }
             
             if(productNameTextField.text == ""){
                 
-                imageWarnName.isHidden = false
                 warnLabelName.isHidden = false
                 
             } else {
                     
-                imageWarnName.isHidden = true
                 warnLabelName.isHidden = true
                 
             }
             
             if(productCategoryTextField.text == ""){
                 
-                imageWarnCategory.isHidden = false
                 warnLabelCategory.isHidden = false
                 
             } else {
                 
-                imageWarnCategory.isHidden = true
                 warnLabelCategory.isHidden = true
                 
             }
             
             if(productSubCategoryTextField.text == ""){
                 
-                imageWarnSubCategory.isHidden = false
                 warnLabelSubCategory.isHidden = false
                 
             } else {
                     
-                imageWarnSubCategory.isHidden = true
                 warnLabelSubCategory.isHidden = true
                 
             }
@@ -390,10 +374,6 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
             else {
             
-            imageWarnName.isHidden = true
-            imageWarnCategory.isHidden = true
-            imageWarnSubCategory.isHidden = true
-            imageWarnPrice.isHidden = true
             warnLabelName.isHidden = true
             warnLabelCategory.isHidden = true
             warnLabelSubCategory.isHidden = true

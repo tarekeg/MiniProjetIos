@@ -43,27 +43,26 @@ class CommentaryDetailsViewController: UIViewController, UITableViewDataSource, 
        
         let commentary = commentariesArray[indexPath.row] as! Dictionary<String,Any>
     
-        if(commentary["Id_sender"] as! String == UserDefaults.standard.string(forKey: "idUser")){
+        if(commentary["Id_sender"] as? String == UserDefaults.standard.string(forKey: "idUser")){
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiverCell", for: indexPath)
             let content = cell.viewWithTag(0)
             let senderLabel = content?.viewWithTag(2) as! UILabel
-            let senderView = content?.viewWithTag(4) as! UIView
-            senderView.layer.cornerRadius = 8.0
-            senderView.clipsToBounds = true
-            senderLabel.text = commentary["text"] as! String
+            let senderView = content?.viewWithTag(4)
+            senderView!.layer.cornerRadius = 8.0
+            senderView!.clipsToBounds = true
+            senderLabel.text = commentary["text"] as? String
         return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SenderCell", for: indexPath)
             let content = cell.viewWithTag(0)
             let receiverLabel = content?.viewWithTag(1) as! UILabel
-            let receiverView = content?.viewWithTag(3) as! UIView
-            receiverView.layer.cornerRadius = 8.0
-            receiverView.clipsToBounds = true
-            receiverLabel.text = commentary["text"] as! String
+            let receiverView = content?.viewWithTag(3)
+            receiverView!.layer.cornerRadius = 8.0
+            receiverView!.clipsToBounds = true
+            receiverLabel.text = commentary["text"] as? String
             return cell
         }
-        return UITableViewCell()
     }
     
     @objc func getData(){
@@ -92,6 +91,7 @@ class CommentaryDetailsViewController: UIViewController, UITableViewDataSource, 
             HUD.flash(.success , delay: 1.0)
             getData()
             tableView.reloadData()
+            scrollToBottom()
         }
     }
     

@@ -101,20 +101,16 @@
 		F50AC51B21B1D01900460457 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F5BFAA3E21ADB03A0006D16F /* AppDelegate.swift */,
+				F5AFBBBE21E1E66D00F39821 /* Utilities */,
+				F5AFBBBD21E1E65700F39821 /* Search */,
+				F5AFBBBC21E1E64700F39821 /* Transaction */,
+				F5AFBBBB21E1E62600F39821 /* Commentary */,
+				F5AFBBBA21E1E61300F39821 /* Profile */,
+				F5AFBBB921E1E5F300F39821 /* Product Details */,
 				F5C1C40721CE468000BDCD04 /* Login */,
 				F5C1C40521CE45F100BDCD04 /* Home Cell + View */,
 				F5C1C40621CE462900BDCD04 /* Add Product Cell + View */,
-				F5BFAA3E21ADB03A0006D16F /* AppDelegate.swift */,
-				F5C786CF21BDD53400870C1F /* DetailsViewController.swift */,
-				F5C1C41921CE976D00BDCD04 /* DetailsDirectSellViewController.swift */,
-				F59C0A4021C5C15B001BFD98 /* ProfileTableViewController.swift */,
-				F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */,
-				F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */,
-				F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */,
-				F5C1C42321D0DAFA00BDCD04 /* CommentaryViewController.swift */,
-				F5C1C42721D0E16D00BDCD04 /* Common.swift */,
-				F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */,
-				F53B1BBD21D6381300CE56D0 /* CommentaryDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,6 +131,58 @@
 				F5BFAA4521ADB03A0006D16F /* MiniProjetIos.xcdatamodeld */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		F5AFBBB921E1E5F300F39821 /* Product Details */ = {
+			isa = PBXGroup;
+			children = (
+				F5C786CF21BDD53400870C1F /* DetailsViewController.swift */,
+				F5C1C41921CE976D00BDCD04 /* DetailsDirectSellViewController.swift */,
+			);
+			path = "Product Details";
+			sourceTree = "<group>";
+		};
+		F5AFBBBA21E1E61300F39821 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F59C0A4021C5C15B001BFD98 /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F5AFBBBB21E1E62600F39821 /* Commentary */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1C42321D0DAFA00BDCD04 /* CommentaryViewController.swift */,
+				F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */,
+				F53B1BBD21D6381300CE56D0 /* CommentaryDetailsViewController.swift */,
+			);
+			path = Commentary;
+			sourceTree = "<group>";
+		};
+		F5AFBBBC21E1E64700F39821 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				F55BE10121C8EC5700FD6AAE /* TransactionViewController.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		F5AFBBBD21E1E65700F39821 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F55BE10321CB9BBD00FD6AAE /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F5AFBBBE21E1E66D00F39821 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F50AC52621B3F69D00460457 /* UITextField+Extensions.swift */,
+				F5C1C42721D0E16D00BDCD04 /* Common.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		F5BFAA3221ADB03A0006D16F = {

@@ -467,7 +467,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmZ-3u-cos">
-                                <rect key="frame" x="0.0" y="44" width="375" height="1144"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="1100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hD7-hk-U0d">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
@@ -688,8 +688,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nom de votre produit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-Gg-pgw">
-                                <rect key="frame" x="146" y="117" width="167" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex Ecran Pc" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-Gg-pgw">
+                                <rect key="frame" x="146" y="117" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
@@ -717,7 +717,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choisissez la catégorie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-Ml-jnu">
-                                <rect key="frame" x="146" y="174" width="167" height="30"/>
+                                <rect key="frame" x="146" y="174" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
@@ -728,7 +728,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choisissez la sous catégorie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fB4-6a-1Po">
-                                <rect key="frame" x="146" y="233" width="167" height="30"/>
+                                <rect key="frame" x="146" y="233" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
@@ -767,7 +767,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prix de vente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IHR-dH-ghy">
-                                <rect key="frame" x="146" y="478" width="167" height="30"/>
+                                <rect key="frame" x="146" y="478" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
@@ -777,22 +777,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="09V-Xw-fYe">
-                                <rect key="frame" x="321" y="121" width="25" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="sWY-Df-RHj">
-                                <rect key="frame" x="321" y="177" width="25" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="cdg-Hm-yIU">
-                                <rect key="frame" x="321" y="237" width="25" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="Wrt-d8-76j">
-                                <rect key="frame" x="321" y="482" width="25" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champ vide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mS-rZ-UUJ">
                                 <rect key="frame" x="146" y="151" width="68" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -814,13 +798,6 @@
                                 <color key="textColor" red="1" green="0.10796751659999999" blue="0.003906006232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champ vide ou contient des lettres" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6h-6i-7T9">
-                                <rect key="frame" x="146" y="516" width="198" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="0.10796751659999999" blue="0.003906006232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itt-Kv-Jrb">
                                 <rect key="frame" x="17.666666666666657" y="679" width="340" height="30"/>
                                 <color key="backgroundColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -836,6 +813,13 @@
                                     <action selector="validateTapped:" destination="39C-LB-4Rp" eventType="touchUpInside" id="77e-Kr-X3w"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champ vide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6h-6i-7T9">
+                                <rect key="frame" x="146" y="516" width="68" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.10796751659999999" blue="0.003906006232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.13035029170000001" green="0.32368648049999998" blue="0.55688798429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -846,10 +830,6 @@
                         <viewLayoutGuide key="safeArea" id="21q-kh-nct"/>
                     </view>
                     <connections>
-                        <outlet property="imageWarnCategory" destination="sWY-Df-RHj" id="1JR-zS-TdV"/>
-                        <outlet property="imageWarnName" destination="09V-Xw-fYe" id="6Ll-Ou-B15"/>
-                        <outlet property="imageWarnPrice" destination="Wrt-d8-76j" id="AFC-GV-dKJ"/>
-                        <outlet property="imageWarnSubCategory" destination="cdg-Hm-yIU" id="Hq0-wk-dMZ"/>
                         <outlet property="productCategoryTextField" destination="q5h-Ml-jnu" id="BUI-DE-yHL"/>
                         <outlet property="productDescriptionTextView" destination="Ieg-Iv-jRC" id="AQs-GG-vWM"/>
                         <outlet property="productNameTextField" destination="D5G-Gg-pgw" id="Xxa-hC-Dhu"/>
@@ -864,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAY-6d-xr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-671.20000000000005" y="2802.5487256371816"/>
+            <point key="canvasLocation" x="-671.20000000000005" y="2801.231527093596"/>
         </scene>
         <!--Auction Sell View Controller-->
         <scene sceneID="nX4-OF-3xM">
@@ -881,7 +861,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nom de votre produit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-sy-FQF">
-                                                <rect key="frame" x="146" y="39" width="167" height="30"/>
+                                                <rect key="frame" x="146" y="39" width="213" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="textColor"/>
@@ -909,7 +889,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choisissez la catégorie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="onb-7R-RBz">
-                                                <rect key="frame" x="146" y="96" width="167" height="30"/>
+                                                <rect key="frame" x="146" y="96" width="213" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="textColor"/>
@@ -920,7 +900,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choisissez la sous catégorie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2x2-QY-ocz">
-                                                <rect key="frame" x="146" y="155" width="167" height="30"/>
+                                                <rect key="frame" x="146" y="155" width="213" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="textColor"/>
@@ -959,7 +939,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prix de vente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ku-4a-9Qs">
-                                                <rect key="frame" x="146" y="400" width="167" height="30"/>
+                                                <rect key="frame" x="146" y="400" width="213" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
@@ -969,18 +949,6 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="pop-Wi-fYs">
-                                                <rect key="frame" x="321" y="99" width="25" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="5Z5-Y8-8fA">
-                                                <rect key="frame" x="321" y="159" width="25" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="P3K-p4-7Xc">
-                                                <rect key="frame" x="321" y="404" width="25" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champ vide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmc-SD-yDb">
                                                 <rect key="frame" x="146" y="73" width="68" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1010,7 +978,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Durée enchère" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Huz-s7-fWw">
-                                                <rect key="frame" x="146" y="509" width="167" height="30"/>
+                                                <rect key="frame" x="146" y="509" width="213" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
@@ -1020,10 +988,6 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="NfC-Gl-iT2">
-                                                <rect key="frame" x="321" y="512" width="25" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champ enchère vide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpR-Qc-7ob">
                                                 <rect key="frame" x="146" y="547" width="117" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1039,7 +1003,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optionnel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H6c-YH-IV8">
-                                                <rect key="frame" x="216" y="584" width="97" height="30"/>
+                                                <rect key="frame" x="216" y="584" width="143" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
@@ -1058,17 +1022,13 @@
                                                     <action selector="validateTapped:" destination="GVn-hD-7oa" eventType="touchUpInside" id="Mkw-FY-JvQ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contient des chiffre ou vide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-pb-tXq">
-                                                <rect key="frame" x="146" y="438" width="157" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champ vide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-pb-tXq">
+                                                <rect key="frame" x="146" y="438" width="68" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="0.10796751659999999" blue="0.003906006232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-error-64" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-TF-seK">
-                                                <rect key="frame" x="321" y="43" width="25" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.13035029170000001" green="0.32368648049999998" blue="0.55688798429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -1097,11 +1057,6 @@
                     </view>
                     <size key="freeformSize" width="375" height="850"/>
                     <connections>
-                        <outlet property="imageWarnAuctionDuration" destination="NfC-Gl-iT2" id="zMT-ve-YX2"/>
-                        <outlet property="imageWarnCategory" destination="pop-Wi-fYs" id="WEU-Ch-DHT"/>
-                        <outlet property="imageWarnName" destination="4vg-TF-seK" id="GCQ-Rm-uuJ"/>
-                        <outlet property="imageWarnPrice" destination="P3K-p4-7Xc" id="1Jh-2e-c4z"/>
-                        <outlet property="imageWarnSubCategory" destination="5Z5-Y8-8fA" id="Gm8-kc-Yxc"/>
                         <outlet property="productAuctionDurationTextField" destination="Huz-s7-fWw" id="DBe-rR-MGS"/>
                         <outlet property="productCategoryTextField" destination="onb-7R-RBz" id="D5A-wa-fKX"/>
                         <outlet property="productDescriptionTextView" destination="aCe-xE-dvK" id="WhC-Eb-5hz"/>
@@ -1119,7 +1074,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Okn-yZ-Wt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="2885"/>
+            <point key="canvasLocation" x="1013.6" y="2884.729064039409"/>
         </scene>
         <!--Ajout Image-->
         <scene sceneID="Ia6-NI-XHL">
@@ -1351,13 +1306,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tvj-OU-GSe">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" red="0.13035029170000001" green="0.32368648049999998" blue="0.55688798429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="minimal" placeholder="Rechercher" id="C2t-wY-2Iu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="minimal" placeholder="Rechercher" showsScopeBar="YES" id="C2t-wY-2Iu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="tintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="tintColor" red="0.13035029170000001" green="0.32368648049999998" blue="0.55688798429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="barTintColor" red="0.90349942449999998" green="0.69464868310000005" blue="0.30577456949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Achat immédiat</string>
+                                        <string>Enchères</string>
+                                    </scopeButtonTitles>
                                     <connections>
                                         <outlet property="delegate" destination="2va-aP-FYV" id="SsN-Qd-vFr"/>
                                     </connections>
@@ -1437,7 +1396,7 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-male-user-filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="4A2-qj-a6y">
-                                    <rect key="frame" x="150" y="63" width="75" height="75"/>
+                                    <rect key="frame" x="132" y="45" width="110" height="110"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </subviews>
@@ -2113,7 +2072,6 @@
     <resources>
         <image name="icons8-compact-camera-filled-100" width="75" height="75"/>
         <image name="icons8-effacer-filled-50" width="37.5" height="37.5"/>
-        <image name="icons8-error-64" width="48" height="48"/>
         <image name="icons8-home-page-30" width="22.5" height="22.5"/>
         <image name="icons8-male-user-filled-100" width="75" height="75"/>
         <image name="icons8-money-bag-30" width="22.5" height="22.5"/>
@@ -2121,7 +2079,7 @@
         <image name="icons8-user-30" width="22.5" height="22.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5pt-f6-IwR"/>
+        <segue reference="2iC-11-E3j"/>
         <segue reference="f4y-Aa-sd7"/>
         <segue reference="gFg-vT-joM"/>
     </inferredMetricsTieBreakers>
