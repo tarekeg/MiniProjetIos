@@ -500,13 +500,11 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
      
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                HUD.show(.progress)
-            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            let appDelegate = UIApplication.shared.delegate
-            appDelegate?.window??.rootViewController = homePage
-                HUD.flash(.success , delay: 1.0)
-
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+                self.present(vc, animated: true, completion: nil)
         }
+            HUD.show(.progress)
         
         }
 

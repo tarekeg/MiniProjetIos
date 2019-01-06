@@ -450,13 +450,12 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     }
                 }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                let appDelegate = UIApplication.shared.delegate
-                appDelegate?.window??.rootViewController = homePage
+
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+                self.present(vc, animated: true, completion: nil)
             }
             HUD.show(.progress)
-            HUD.flash(.success , delay: 1.0)
-
         }
 
     }

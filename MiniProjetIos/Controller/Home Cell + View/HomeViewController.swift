@@ -415,8 +415,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
         }
-    
-    
 
 }
 

@@ -11,17 +11,27 @@ import Alamofire
 import SwiftyJSON
 import PKHUD
 
-class CommentaryViewController: UIViewController {
+class CommentaryViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var nameReceiver: UILabel!
     @IBOutlet weak var nameProduct: UILabel!
     
     @IBOutlet weak var commentaryTextView: UITextView!
+    var placeholderLabel : UILabel!
     var id : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(id!)
+        commentaryTextView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Entrer votre commentaire"
+        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (commentaryTextView.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        commentaryTextView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (commentaryTextView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor(red:0.00, green:0.52, blue:1.00, alpha:1.0)
+        placeholderLabel.isHidden = !commentaryTextView.text.isEmpty
         UpdateData()
+        
         
 
     }
@@ -29,12 +39,12 @@ class CommentaryViewController: UIViewController {
     func UpdateData(){
         Alamofire.request(Common.Global.LOCAL + "/getproduct/" + String(id!)).responseJSON { response in
             let responseJson = JSON(response.result.value)
-            self.nameProduct.text = "Produit: " + responseJson[0]["Name"].stringValue
+            self.nameProduct.text = responseJson[0]["Name"].stringValue
             UserDefaults.standard.setValue(responseJson[0]["Id_user"].stringValue, forKey: "idReceiver")
             Alamofire.request(Common.Global.LOCAL + "/getuser/" + responseJson[0]["Id_user"].stringValue).responseJSON(completionHandler: { responseUser in
                 print(responseUser.result.value)
                 let responseUserJson = JSON(responseUser.result.value)
-                self.nameReceiver.text = "Vendeur: " + responseUserJson[0]["FirstName"].stringValue + " " + responseUserJson[0]["LastName"].stringValue
+                self.nameReceiver.text = responseUserJson[0]["FirstName"].stringValue + " " + responseUserJson[0]["LastName"].stringValue
             })
             
         }
@@ -61,10 +71,9 @@ class CommentaryViewController: UIViewController {
             let idReceiver = UserDefaults.standard.string(forKey: "idReceiver")
             print("idSender = ",idSender!)
             print("idReceiver = ",idReceiver!)
-            let url = Common.Global.LOCAL + "/addcommentary/" + idSender! + "/" + idReceiver! + "/" + String(id!) + "/" + commentaryTextView.text
+            let url = Common.Global.LOCAL + "/addcommentary/" + idSender! + "/" + idReceiver! + "/" + commentaryTextView.text
             
             let finalUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-            print(finalUrl!)
             Alamofire.request(finalUrl!)
             dismiss(animated: true, completion: nil)
             
@@ -72,6 +81,12 @@ class CommentaryViewController: UIViewController {
         
         
     }
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
+    }
     
-
+    @IBAction func backToHome(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

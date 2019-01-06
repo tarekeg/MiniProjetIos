@@ -33,7 +33,6 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
     @IBOutlet weak var logOutButton: FBSDKLoginButton!
     
     let imagePicker = UIImagePickerController()
-    
     var userArray : NSArray = []
 
     override func viewDidLoad() {
@@ -49,9 +48,9 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
         imagePicker.delegate = self
         let urlPath = UserDefaults.standard.string(forKey: "profileImg")
         getData()
-        if(urlPath != nil){
         profileImageView.layer.cornerRadius = 35.0
         profileImageView.clipsToBounds = true
+        if(urlPath == nil){
         if let url = URL(string: urlPath!) {
             downloadImage(from: url)
         }
@@ -115,21 +114,21 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
                 self.userArray = response.result.value as! NSArray
                 let user = self.userArray[0] as! Dictionary<String,Any>
                 
-                if user["profile_image_path"] == nil {
+//                if user["profile_image_path"] == nil {
                     let pathPicture = user["profile_image_path"] as! String
                     self.profileImageView.af_setImage(withURL: URL(string: pathPicture)!)
-                } else {
-                    let urlPath = UserDefaults.standard.string(forKey: "profileImg")
-                    let url = URL(string: urlPath!)
-                    self.downloadImage(from: url!)
-                   
-                    }
+//                } else {
+//                    let urlPath = UserDefaults.standard.string(forKey: "profileImg")
+//                    let url = URL(string: urlPath!)
+//                    self.downloadImage(from: url!)
+//
+//                    }
                 
                 let userFirstName = user["FirstName"] as! String
                 let userLastName = user["LastName"] as! String
                 let userPhoneNumber = user["PhoneNumber"] as! String
                 let userEmail = user["Email"] as! String
-                
+                self.addressTextField.text = user["Adresse"] as? String ?? "champs vide"
                 self.nameTextField.text = userFirstName
                 self.lastNameTextField.text = userLastName
                 self.phoneNumberTextField.text = userPhoneNumber

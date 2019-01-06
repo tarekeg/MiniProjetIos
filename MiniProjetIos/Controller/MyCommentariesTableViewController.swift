@@ -53,10 +53,9 @@ class MyCommentariesTableViewController: UITableViewController {
         if segue.identifier == "toComments"{
             
             let commentaire = commentariesArray[index!.item] as! Dictionary<String,Any>
-            let idCommentary = commentaire["Id"] as? Int
-            print(idCommentary)
+            let idSender = commentaire["Id_sender"] as? String
             if let destinationVC =  segue.destination as? CommentaryDetailsViewController{
-                destinationVC.idCommentary = idCommentary!
+                destinationVC.idSender = idSender!
                 
             }
         }

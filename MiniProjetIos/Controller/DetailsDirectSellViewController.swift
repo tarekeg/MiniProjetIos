@@ -124,10 +124,13 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
             response in
             self.product = response.result.value as! NSArray
             let singleProduct = self.product[0] as! Dictionary<String,Any>
+            self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
+            if(UserDefaults.standard.string(forKey: "idUser") == singleProduct["Id_user"] as? String){
+                self.buttonOutlet.isEnabled = false
+                self.buttonOutlet.setTitle("Mon produit", for: .normal)
+            }
             self.nameLabel.text = singleProduct["Name"] as? String
             self.title = singleProduct["Name"] as? String
-            
-            //            self.categoryLabel.text = singleProduct["Categorie"] as? String
             self.subCategoryLabel.text = (singleProduct["Sub_category"] as! String)
             let url = Common.Global.LOCAL + "/getsimilarproduct/" + self.subCategoryLabel.text! + "/" + String(self.id!)
             let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
@@ -138,10 +141,8 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
                 self.similarCollectionView.reloadData()
             }
             self.productDescriptionTextView.text = singleProduct["Description"] as? String
-            if(singleProduct["Type_vente"] as! Int == 1){
-                self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
                 self.priceLabel.text = String(singleProduct["PrixFixe"] as! Double) + " DT"
-            }
+            
         }
         
         
@@ -205,9 +206,10 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCommentary" {
-            if let destinationVC =  segue.destination as? CommentaryViewController{
-                destinationVC.id = id
-                
+            if let destinationVC =  segue.destination as? UINavigationController {
+                if let childVC = destinationVC.topViewController as? CommentaryViewController {
+                    childVC.id = id
+                }
             }
         }
     }
