@@ -716,6 +716,7 @@
                         <outlet property="pageControl" destination="Ceq-tC-SsR" id="3D1-Ed-o5G"/>
                         <outlet property="priceLabel" destination="bPc-hE-64T" id="zN3-7x-aXY"/>
                         <outlet property="productDescriptionTextView" destination="xFn-CF-u8m" id="igb-9A-gnP"/>
+                        <outlet property="rateCosmos" destination="WYB-o0-aQe" id="aTK-Xd-PBJ"/>
                         <outlet property="sellerImageView" destination="u5v-Tb-Afi" id="kkk-ta-fVh"/>
                         <outlet property="sellerNameLabel" destination="aIU-1L-hRw" id="LwQ-Y0-pUg"/>
                         <outlet property="similarCollectionView" destination="GVm-OJ-S1c" id="biZ-jS-kuD"/>

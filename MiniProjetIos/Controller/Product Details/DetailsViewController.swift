@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import CoreData
+import Cosmos
 
 class DetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -24,6 +25,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     var AuctionTimer: Timer!
     var similarArray : NSArray = []
 
+    @IBOutlet weak var rateCosmos: CosmosView!
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet weak var sellerImageView: UIImageView!
     
@@ -48,7 +50,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        rateCosmos.settings.updateOnTouch = false
         sellerImageView.layer.cornerRadius = 22.5
         sellerImageView.clipsToBounds = true
 
