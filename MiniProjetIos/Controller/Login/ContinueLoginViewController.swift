@@ -16,6 +16,8 @@ class ContinueLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.phoneNumberTextField.keyboardType = UIKeyboardType.decimalPad
+
         
     }
     

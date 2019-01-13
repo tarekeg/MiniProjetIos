@@ -8,6 +8,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Cosmos (18.0.1)
   - FBSDKCoreKit (4.37.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.37.0):
@@ -33,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Cosmos
   - FBSDKCoreKit (= 4.37.0)
   - FBSDKLoginKit (= 4.37.0)
   - GoogleSignIn
@@ -46,6 +48,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - Bolts
+    - Cosmos
     - FBSDKCoreKit
     - FBSDKLoginKit
     - GoogleSignIn
@@ -60,6 +63,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
   FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
   FBSDKLoginKit: 2f7249686d1e30ce8a5ef5400eedf50b3e3df332
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -70,6 +74,6 @@ SPEC CHECKSUMS:
   PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 69963d1ef27c4f8d858084e46320b5cad72bd4ce
+PODFILE CHECKSUM: db83942863e882d7a81d6e06b68f0941e593c6ce
 
 COCOAPODS: 1.5.3

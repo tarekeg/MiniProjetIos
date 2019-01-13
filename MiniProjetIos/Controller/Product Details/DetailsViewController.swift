@@ -24,6 +24,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     var AuctionTimer: Timer!
     var similarArray : NSArray = []
 
+    @IBOutlet weak var sellerNameLabel: UILabel!
+    @IBOutlet weak var sellerImageView: UIImageView!
     
     @IBOutlet weak var similarCollectionView: UICollectionView!
     @IBOutlet weak var typeSellLabel: UILabel!
@@ -47,6 +49,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
 
+        sellerImageView.layer.cornerRadius = 22.5
+        sellerImageView.clipsToBounds = true
 
         getImages()
         getData()
@@ -120,17 +124,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
         return (seconds / 86400,(seconds % 86400) / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
+    
     @objc func getDate(){
         Alamofire.request(BaseUrl + "getproduct/" + String(id!)).responseJSON{
             response in
             self.product = response.result.value as! NSArray
             let singleProduct = self.product[0] as! Dictionary<String,Any>
-            
-            if((singleProduct["Id_user"] as! String) == UserDefaults.standard.string(forKey: "idUser")){
-                self.buttonOutlet.isHidden = true
-            }
-
-            if(singleProduct["Type_vente"] as! Int == 2){
                 self.dateFinAuction = singleProduct["DateFin"] as? String
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -146,7 +145,6 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                     self.buttonOutlet.isEnabled = false
                     self.timeLeftForAuction.isHidden = true
                     self.newAcutionTextField.isEnabled = false
-                }
             }
         }
     }
@@ -161,8 +159,18 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             let singleProduct = self.product[0] as! Dictionary<String,Any>
             self.nameLabel.text = singleProduct["Name"] as? String
             self.title = singleProduct["Name"] as? String
-    
-//            self.categoryLabel.text = singleProduct["Categorie"] as? String
+            let id_Seller = singleProduct["Id_user"] as! String
+            Alamofire.request(Common.Global.LOCAL  + "/getuser/" + id_Seller).responseJSON(completionHandler: { response in
+                let responseJson = JSON(response.result.value)
+                let pathPicture = responseJson[0]["profile_image_path"].stringValue
+                let nameSeller = responseJson[0]["FirstName"].stringValue + " " + responseJson[0]["LastName"].stringValue
+                self.sellerImageView.af_setImage(withURL: URL(string: pathPicture)!)
+                self.sellerNameLabel.text = nameSeller
+            })
+            if((id_Seller) == UserDefaults.standard.string(forKey: "idUser")){
+                self.buttonOutlet.isHidden = true
+                
+            }
             self.subCategoryLabel.text = (singleProduct["Sub_category"] as! String)
             let url = Common.Global.LOCAL + "/getsimilarproduct/" + self.subCategoryLabel.text! + "/" + String(self.id!)
             let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
@@ -198,8 +206,6 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                 self.priceLabel.text = String(singleProduct["PrixEnchere"] as! Double) + " DT"
             }
         }
-        
-        
     }
     
     @IBAction func validateTapped(_ sender: Any) {
@@ -210,41 +216,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             response in
             self.product = response.result.value as! NSArray
             let singleProduct = self.product[0] as! Dictionary<String,Any>
-            if(singleProduct["Type_vente"] as! Int == 1){
-                
-                let userid = singleProduct["Id_user"] as! String
-                
-                Alamofire.request(self.BaseUrl + "getphone/" + userid).responseJSON{ response in
-                    print(response.result.value!)
-                    let resultJson = JSON(response.result.value)
-                    let phoneNumber = resultJson[0]["PhoneNumber"].stringValue
-                    print("le numéro est", phoneNumber)
-                    
-                    let alert = UIAlertController(title: "Contacter", message: "", preferredStyle: .alert)
-                    
-                    let action = UIAlertAction(title: "Appeler", style: .default, handler: { (UIAlertAction) in
-                        print("le numéro de téléphone est:",phoneNumber)
-                        guard let number = URL(string: "tel://" + phoneNumber) else { return }
-                        UIApplication.shared.open(number)
-                    })
-                    let actionComentaire = UIAlertAction(title: "Commentaire", style: .default, handler: { (UIAlertAction) in
-                        print("commentaire")
-                    })
-                    let actionCancel = UIAlertAction(title: "Annuler", style: .cancel, handler: nil)
-                    
-                    alert.addAction(action)
-                    alert.addAction(actionComentaire)
-                    alert.addAction(actionCancel)
-                    
-                    self.present(alert , animated: true, completion: nil)
-                    
-                }
-                
-                
-            }
-            
-            if(singleProduct["Type_vente"] as! Int == 2){
                 let lastAuction = singleProduct["PrixEnchere"] as! Double
+            
                 var newAuction = self.convert(string: self.newAcutionTextField.text!)
                 
                 if(self.newAcutionTextField.text == ""){
@@ -265,20 +238,26 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                     Alamofire.request(self.BaseUrl + "updateAuction/\(self.id!)/" + String(newAuction))
                     Alamofire.request(self.BaseUrl + "addtransaction/" + String(self.id!) + "/" + UserDefaults.standard.string(forKey: "idUser")! + "/" + String(newAuction), method: .post)
                     self.newAcutionTextField.text = ""
+                    Alamofire.request(self.BaseUrl + "getbestauction/\(self.id!)").responseJSON(completionHandler: { response in
+                        let responseJson = JSON(response.result.value)
+                        let id = responseJson[0]["Id_user"].stringValue
+                        Alamofire.request(Common.Global.LOCAL + "/sendnotif/" + id + "/\(self.id!)")
+                    })
                 } else  {
-                    let alert = UIAlertController(title: "Nouvelle enchère invalide", message: "Votre enchère doit etre comprise entre \(lastAuction * 0.01) et \(lastAuction * 0.1)", preferredStyle: .alert)
+                    let a = String(format:"%.02f", lastAuction * 0.01)
+                    let b = String(format:"%.02f", lastAuction * 0.1)
+                    let alert = UIAlertController(title: "Nouvelle enchère invalide", message: "Votre enchère doit etre comprise entre " + a + " et " + b, preferredStyle: .alert)
                     
                     let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                     
                     alert.addAction(action)
-                    
                     
                     self.present(alert , animated: true, completion: nil)
                     
         }
         
         
-    }
+    
     
     }
         

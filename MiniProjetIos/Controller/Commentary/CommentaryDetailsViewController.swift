@@ -101,7 +101,7 @@ class CommentaryDetailsViewController: UIViewController, UITableViewDataSource, 
     }
     
     func scrollToBottom(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             let indexPath = IndexPath(row: self.commentariesArray.count-1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }

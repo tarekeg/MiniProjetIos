@@ -16,5 +16,6 @@ target 'MiniProjetIos' do
 	pod 'GoogleSignIn'
 	pod 'MBProgressHUD'
 	pod 'PKHUD'
+	pod 'Cosmos'
 
 end

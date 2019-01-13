@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 //        self.title = "Acceuil"
         tableView.reloadData()
+        updatedevicetoken()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -415,6 +416,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
         }
+    func updatedevicetoken(){
+        if let deviceToken = UserDefaults.standard.string(forKey: "deviceToken") {
+            let id = UserDefaults.standard.string(forKey: "idUser")
+            print(deviceToken)
+            print(id!)
+           Alamofire.request(Common.Global.LOCAL + "/updatedevicetoken/" + deviceToken + "/" + id! ,method : .post)
+        } else {
+            print("devicetoken nil")
+        }
+        
+    }
 
 }
 

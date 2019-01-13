@@ -275,7 +275,7 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         toolBar.sizeToFit()
         
         // buttons for toolBar
-        let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(doneClick))
+        let doneButton = UIBarButtonItem(title: "Choisir", style: .plain, target: self, action: #selector(doneClick))
         doneButton.tintColor = .black
     
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -285,6 +285,69 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
         
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        switch activeTextField {
+        case 1:
+            let titleData = categoriesArray[row]
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+            
+            return myTitle
+        case 2:
+            if(productCategoryTextField.text == "Immobilier"){
+                let titleData = subCategoriesImmoArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            if(productCategoryTextField.text == "Véhicules"){
+                let titleData = subCategoriesVehiculesArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            if(productCategoryTextField.text == "Pour la Maison et Jardin"){
+                let titleData = subCategoriesMaisonJardinArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            if(productCategoryTextField.text == "Loisirs et Divertissement"){
+                let titleData = subCategoriesLoisirDivertissementArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            if(productCategoryTextField.text == "Informatique et Multimédia"){
+                let titleData = subCategoriesInfoMultimediaArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            if(productCategoryTextField.text == "Habillement et Bien Etre"){
+                let titleData = subCategoriesHabillementBienEtreArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            if(productCategoryTextField.text == "Autres"){
+                let titleData = subCategoriesAutresArray[row]
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+                
+                return myTitle
+            }
+            
+        default:
+            let titleData = ""
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+            
+            return myTitle
+        }
+        let titleData = ""
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.13, green: 0.33, blue: 0.56, alpha: 1.0)])
+        
+        return myTitle
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

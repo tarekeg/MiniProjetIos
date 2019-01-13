@@ -26,7 +26,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        getData()
+        getData(path: "getprod")
 
     }
     
@@ -64,8 +64,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    func getData() {
-        Alamofire.request(self.baseUrl + "getproducts").responseJSON { response in
+    func getData(path : String) {
+        Alamofire.request(self.baseUrl + path).responseJSON { response in
             self.productsArray = response.result.value as! NSArray
             let productJson = JSON(self.productsArray)
             for index in 0...self.productsArray.count - 1{
@@ -99,6 +99,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if (selectedScope == 0){
+            self.products = []
+            getData(path: "getprod")
+        }
+        if(selectedScope == 1){
+            self.products = []
+            getData(path: "getdirectprod")
+        } else if (selectedScope == 2){
+            self.products = []
+            getData(path: "getauctionprod")
+        }
     }
   
 }
