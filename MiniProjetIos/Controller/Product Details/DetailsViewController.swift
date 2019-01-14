@@ -12,6 +12,7 @@ import AlamofireImage
 import SwiftyJSON
 import CoreData
 import Cosmos
+import PKHUD
 
 class DetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -25,11 +26,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     var AuctionTimer: Timer!
     var similarArray : NSArray = []
     var rateAvgArray : NSArray = []
+    var idUser : String?
 
+    @IBOutlet weak var addToFav: UIBarButtonItem!
     @IBOutlet weak var rateCosmos: CosmosView!
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet weak var sellerImageView: UIImageView!
-    
     @IBOutlet weak var similarCollectionView: UICollectionView!
     @IBOutlet weak var typeSellLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -57,6 +59,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
         rateCosmos.settings.fillMode = .precise
         sellerImageView.layer.cornerRadius = 22.5
         sellerImageView.clipsToBounds = true
+        getSellerId()
         getImages()
         getData()
         buttonOutlet.layer.cornerRadius = 20.0
@@ -205,10 +208,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                 self.sellerImageView.af_setImage(withURL: URL(string: pathPicture)!)
                 self.sellerNameLabel.text = nameSeller
             })
-            if((id_Seller) == UserDefaults.standard.string(forKey: "idUser")){
-                self.buttonOutlet.isHidden = true
-                
-            }
+            print(id_Seller + " " + UserDefaults.standard.string(forKey: "idUser")!)
+            
             self.subCategoryLabel.text = (singleProduct["Sub_category"] as! String)
             let url = Common.Global.LOCAL + "/getsimilarproduct/" + self.subCategoryLabel.text! + "/" + String(self.id!)
             let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
@@ -227,6 +228,10 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                 self.echerieLabel.isHidden = false
                 self.newAcutionTextField.isHidden = false
                 self.buttonOutlet.setTitle("Enchérir", for: .normal)
+                if(id_Seller == UserDefaults.standard.string(forKey: "idUser")){
+                    self.buttonOutlet.setTitle("Modifier État Enchère", for: .normal)
+                    self.addToFav.isEnabled = false
+                }
                 self.dateFinAuction = singleProduct["DateFin"] as? String
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -247,7 +252,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     @IBAction func validateTapped(_ sender: Any) {
-        
+        if(buttonOutlet.title(for: .normal) == "Modifier État Enchère"){
+            print("ok")
+        } else {
         
         
         Alamofire.request(BaseUrl + "getproduct/" + String(id!)).responseJSON{
@@ -291,6 +298,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                     alert.addAction(action)
                     
                     self.present(alert , animated: true, completion: nil)
+            }
                     
         }
         
@@ -338,35 +346,90 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     @objc func nameSellerTapped(){
-        performSegue(withIdentifier: "toProfileSeller", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toProfileSeller" {
-           
-                if let destinationVC =  segue.destination as? ProfileSellerViewController {
-                        destinationVC.id = id
-            }
-        }
-    }
-    
-    
-    @IBAction func addToFavorite(_ sender: Any) {
+
+        self.performSegue(withIdentifier: "toProfileSeller", sender: nil)
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "toProfileSeller" {
+            
+                
+                if let destinationVC =  segue.destination as? ProfileSellerViewController {
+                        destinationVC.id = self.id
+                        destinationVC.idUserSeller = self.idUser
+            }
+            
+        }
+    }
+    func getSellerId(){
+        Alamofire.request(Common.Global.LOCAL + "/getproduct/" + String(self.id!)).responseJSON { response in
+            let responseJson = JSON(response.result.value)
+            self.idUser = responseJson[0]["Id_user"].stringValue
+        }
+        
+    }
+    
+    @IBAction func addToFavorite(_ sender: Any) {
+        
+        let productJson = JSON(self.product)
+        
+        let idProduct = productJson[0]["Id"].intValue
+        let categorie = productJson[0]["Categorie"].stringValue
+        let subCategory = productJson[0]["Sub_category"].stringValue
+        let typeVente = productJson[0]["Type_vente"].intValue
+        let idUser = productJson[0]["Id_user"].stringValue
+        let firstImagePath = productJson[0]["first_image_path"].stringValue
+        let nameProduct = productJson[0]["Name"].stringValue
+
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let persistantContainer = appDelegate.persistentContainer
+        
+        let context = persistantContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Produit")
+        
+        do {
+            let resultArray = try context.fetch(request)
+            if resultArray.count == 0 {
+                let productDesc = NSEntityDescription.entity(forEntityName: "Produit", in: context)
+                
+                var newProduct = NSManagedObject (entity: productDesc!, insertInto: context)
+                
+                newProduct.setValue(idProduct, forKey: "id")
+                newProduct.setValue(idUser, forKey: "id_seller")
+                newProduct.setValue(categorie, forKey: "categorie")
+                newProduct.setValue(subCategory, forKey: "sub_category")
+                newProduct.setValue(firstImagePath, forKey: "firstImagePath")
+                newProduct.setValue(typeVente, forKey: "typevente")
+                newProduct.setValue(nameProduct, forKey: "name")
+
+                
+
+
+                do {
+                    try context.save()
+                    HUD.flash(.success , delay: 1.0)
+                    print ("Product Saved !!")
+                } catch {
+                    print("Error !")
+                }
+            }else{
+                let alert = UIAlertController(title: "Duplication", message: "le produit existe déjà dans vos favoris", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+            }
+        } catch {
+            print("error")
+        }
+
+
+
     
 }
+}
 
-//extension DetailsViewController : UICollectionViewDelegateFlowLayout
-//{
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-//    {
-//        
-//        let layout = collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.minimumLineSpacing = 5.0
-//        layout.minimumInteritemSpacing = 2.5
-//        let itemWidth = (collectionView.bounds.width - 5.0) / 2.0
-//        return CGSize(width: itemWidth, height: itemWidth)
-//    }
-//}
+

@@ -19,7 +19,7 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
    
     
     
-    @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var updateBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var changeProfilePicture: UIButton!
     
@@ -37,11 +37,14 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
+        nameTextField.isUserInteractionEnabled = true
+        lastNameTextField.isUserInteractionEnabled = true
+        emailTextField.isUserInteractionEnabled = true
+        phoneNumberTextField.isUserInteractionEnabled = true
+        addressTextField.isUserInteractionEnabled = true
+        changeProfilePicture.isHidden = false
         self.hideKeyboardWhenTappedAround()
-        cancelBarButtonItem.isEnabled = false
-        cancelBarButtonItem.title = ""
-        changeProfilePicture.isHidden = true
         logOutButton.isHidden = true
         googleSignOutButton.isHidden = true
         self.logOutButton.delegate = self
@@ -84,19 +87,21 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
     }
 
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("ok")
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
+        HUD.show(.progress)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            HUD.hide()
+        }
     }
     
     @IBAction func googleSignOutTapped(_ sender: Any) {
 //        GIDSignIn.sharedInstance().hasAuthInKeychain() = false
         GIDSignIn.sharedInstance()?.disconnect()
         HUD.show(.progress)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
             HUD.hide()
 
@@ -213,20 +218,6 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
     }
     @IBAction func updateProfileTapped(_ sender: Any) {
         
-        if(updateBarButtonItem.title == "Modifier"){
-        cancelBarButtonItem.title = "Annuler"
-        cancelBarButtonItem.isEnabled = true
-        updateBarButtonItem.title = "OK"
-        tableView.allowsSelection = true
-        nameTextField.isUserInteractionEnabled = true
-        lastNameTextField.isUserInteractionEnabled = true
-        emailTextField.isUserInteractionEnabled = true
-        phoneNumberTextField.isUserInteractionEnabled = true
-        addressTextField.isUserInteractionEnabled = true
-        changeProfilePicture.isHidden = false
-
-            
-        } else if (updateBarButtonItem.title == "OK"){
             let firstName = nameTextField.text
             let lastName = lastNameTextField.text
             let email = emailTextField.text
@@ -239,38 +230,16 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
                 print(urlString!)
                 Alamofire.request(urlString!, method: .post)
             }
-            tableView.allowsSelection = false
-            cancelBarButtonItem.title = ""
-            cancelBarButtonItem.isEnabled = false
-            updateBarButtonItem.title = "Modifier"
-            nameTextField.isUserInteractionEnabled = false
-            lastNameTextField.isUserInteractionEnabled = false
-            emailTextField.isUserInteractionEnabled = false
-            phoneNumberTextField.isUserInteractionEnabled = false
-            addressTextField.isUserInteractionEnabled = false
-            changeProfilePicture.isHidden = true
-            
+        HUD.flash(.success , delay: 1.0)
+        self.dismiss(animated: true, completion: nil)
 
         }
         
         
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func cancelUpdateProfileTapped(_ sender: Any) {
-        
-        
-        updateBarButtonItem.title = "Modifier"
-        cancelBarButtonItem.isEnabled = false
-        cancelBarButtonItem.title = ""
-        nameTextField.isUserInteractionEnabled = false
-        lastNameTextField.isUserInteractionEnabled = false
-        emailTextField.isUserInteractionEnabled = false
-        phoneNumberTextField.isUserInteractionEnabled = false
-        addressTextField.isUserInteractionEnabled = false
-        changeProfilePicture.isHidden = true
-        
-        
-        
-    }
+    
 }
 
 extension UIViewController {

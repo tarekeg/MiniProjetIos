@@ -31,6 +31,8 @@
 		F5C1C42A21D11CA700BDCD04 /* MyCommentariesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */; };
 		F5C786D021BDD53400870C1F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C786CF21BDD53400870C1F /* DetailsViewController.swift */; };
 		F5D0ABA921C3C13C00CFBD46 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5D0ABA821C3C13C00CFBD46 /* credentials.plist */; };
+		F5E98ED521ECD1A2001B0058 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E98ED421ECD1A2001B0058 /* SettingsTableViewController.swift */; };
+		F5E98ED921ECD663001B0058 /* MyFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E98ED821ECD663001B0058 /* MyFavViewController.swift */; };
 		F5F56ACA21BC4DB7009B8938 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F56AC921BC4DB7009B8938 /* CategoryCell.swift */; };
 		F5F56ACC21BC4DDB009B8938 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F56ACB21BC4DDB009B8938 /* ProductCell.swift */; };
 		F5FA66BC21BBDC310037C9FA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA66BB21BBDC310037C9FA /* HomeViewController.swift */; };
@@ -67,6 +69,8 @@
 		F5C1C42921D11CA700BDCD04 /* MyCommentariesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentariesTableViewController.swift; sourceTree = "<group>"; };
 		F5C786CF21BDD53400870C1F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F5D0ABA821C3C13C00CFBD46 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		F5E98ED421ECD1A2001B0058 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F5E98ED821ECD663001B0058 /* MyFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavViewController.swift; sourceTree = "<group>"; };
 		F5F56AC921BC4DB7009B8938 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F5F56ACB21BC4DDB009B8938 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		F5FA66BB21BBDC310037C9FA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				F5C1C40721CE468000BDCD04 /* Login */,
 				F5C1C40521CE45F100BDCD04 /* Home Cell + View */,
 				F5C1C40621CE462900BDCD04 /* Add Product Cell + View */,
+				F5E98ED421ECD1A2001B0058 /* SettingsTableViewController.swift */,
+				F5E98ED821ECD663001B0058 /* MyFavViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 				F5C1C41A21CE976D00BDCD04 /* DetailsDirectSellViewController.swift in Sources */,
 				F50AC52321B3CFCB00460457 /* AuctionSellViewController.swift in Sources */,
 				F5FA66BC21BBDC310037C9FA /* HomeViewController.swift in Sources */,
+				F5E98ED921ECD663001B0058 /* MyFavViewController.swift in Sources */,
 				F59C0A4121C5C15B001BFD98 /* ProfileTableViewController.swift in Sources */,
 				F50AC52521B3CFDF00460457 /* DirectSellViewController.swift in Sources */,
 				F50AC52121B1E2F300460457 /* AddProductViewController.swift in Sources */,
@@ -448,6 +455,7 @@
 				F5C1C42A21D11CA700BDCD04 /* MyCommentariesTableViewController.swift in Sources */,
 				F5F56ACA21BC4DB7009B8938 /* CategoryCell.swift in Sources */,
 				F5C1C42821D0E16D00BDCD04 /* Common.swift in Sources */,
+				F5E98ED521ECD1A2001B0058 /* SettingsTableViewController.swift in Sources */,
 				F5B357CD21C3F92E00A4B380 /* ContinueLoginViewController.swift in Sources */,
 				F55BE10221C8EC5700FD6AAE /* TransactionViewController.swift in Sources */,
 				F5C1C42421D0DAFA00BDCD04 /* CommentaryViewController.swift in Sources */,

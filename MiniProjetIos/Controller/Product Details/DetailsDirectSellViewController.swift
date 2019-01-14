@@ -17,9 +17,12 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
     let BaseUrl = Common.Global.LOCAL + "/"
     var similarArray : NSArray = []
     var rateAvgArray : NSArray = []
+    var idUser : String?
+
 
     
     
+    @IBOutlet weak var addToFav: UIBarButtonItem!
     @IBOutlet weak var rateCosmos: CosmosView!
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet weak var sellerImageView: UIImageView!
@@ -32,16 +35,19 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var productDescriptionTextView: UITextView!
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getData()
-    }
+//    
+//    override func viewWillAppear(_ animated: Bool) {
+//        getData()
+//    }
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //getDate()
         getImages()
         getData()
+        getSellerId()
+
         rateCosmos.settings.updateOnTouch = false
         rateCosmos.settings.fillMode = .precise
         sellerImageView.layer.cornerRadius = 22.5
@@ -125,20 +131,7 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
     
   
     
-    @objc func getDate(){
-        Alamofire.request(BaseUrl + "getproduct/" + String(id!)).responseJSON{
-            response in
-            self.product = response.result.value as! NSArray
-            let singleProduct = self.product[0] as! Dictionary<String,Any>
-            
-            if((singleProduct["Id_user"] as! String) == UserDefaults.standard.string(forKey: "idUser")){
-                self.buttonOutlet.isHidden = true
-            }
-            
-           
-        }
-        
-    }
+
     
     
     
@@ -146,9 +139,14 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
         
         Alamofire.request(BaseUrl + "getproduct/" + String(id!)).responseJSON{
             response in
+            self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
             self.product = response.result.value as! NSArray
             let singleProduct = self.product[0] as! Dictionary<String,Any>
             let id_Seller = singleProduct["Id_user"] as! String
+            if(id_Seller == UserDefaults.standard.string(forKey: "idUser")){
+                self.buttonOutlet.setTitle("Modifier État Produit", for: .normal)
+                self.addToFav.isEnabled = false
+            }
             Alamofire.request(Common.Global.LOCAL + "/getaveragevalue/" + id_Seller).responseJSON(completionHandler: { responseAvg in
                 
                 self.rateAvgArray = responseAvg.result.value as! NSArray
@@ -175,11 +173,6 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
                 self.sellerImageView.af_setImage(withURL: URL(string: pathPicture)!)
                 self.sellerNameLabel.text = nameSeller
             })
-            self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
-            if(UserDefaults.standard.string(forKey: "idUser") == singleProduct["Id_user"] as? String){
-                self.buttonOutlet.isEnabled = false
-                self.buttonOutlet.setTitle("Mon produit", for: .normal)
-            }
             self.nameLabel.text = singleProduct["Name"] as? String
             self.title = singleProduct["Name"] as? String
             self.subCategoryLabel.text = (singleProduct["Sub_category"] as! String)
@@ -266,11 +259,19 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
         if segue.identifier == "toProfileSeller" {
             
             if let destinationVC =  segue.destination as? ProfileSellerViewController {
+                destinationVC.idUserSeller = self.idUser
                 destinationVC.id = id
             }
         }
     }
 
+    func getSellerId(){
+        Alamofire.request(Common.Global.LOCAL + "/getproduct/" + String(self.id!)).responseJSON { response in
+            let responseJson = JSON(response.result.value)
+            self.idUser = responseJson[0]["Id_user"].stringValue
+        }
+        
+    }
     
     
 

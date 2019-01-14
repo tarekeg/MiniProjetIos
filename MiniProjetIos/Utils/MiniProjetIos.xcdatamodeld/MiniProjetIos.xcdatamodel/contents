@@ -2,15 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Produit" representedClassName="Produit" syncable="YES" codeGenerationType="class">
         <attribute name="categorie" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="datefin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="firstImagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_seller" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prixEnchere" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prixFixe" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sub_category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typevente" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Produit" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Produit" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

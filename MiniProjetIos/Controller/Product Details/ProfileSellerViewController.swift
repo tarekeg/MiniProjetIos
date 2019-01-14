@@ -26,7 +26,7 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
     @IBOutlet weak var userFirstNameLabel: UILabel!
     @IBOutlet weak var userAdressLabel: UILabel!
     
-    
+    var idUserSeller : String?
     var data: [JSON] = []
     var id : Int?
     var userProductArray : NSArray = []
@@ -41,6 +41,7 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
     
     
     override func viewDidLoad() {
+        print("tesssssssst",idUserSeller)
         super.viewDidLoad()
         tableView.isHidden = true
         getData()
@@ -114,13 +115,10 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
     }
     func getData() {
         self.data = []
-        Alamofire.request(Common.Global.LOCAL + "/getproduct/" + String(id!)).responseJSON { response in
-            let responseJson = JSON(response.result.value)
-            let idUser = responseJson[0]["Id_user"].stringValue
-            if(self.user == idUser){
+            if(self.user == self.idUserSeller!){
                 self.addRatingButton.isHidden = true
             }
-            Alamofire.request(Common.Global.LOCAL + "/getaveragevalue/" + idUser).responseJSON(completionHandler: { responseAvg in
+            Alamofire.request(Common.Global.LOCAL + "/getaveragevalue/" + idUserSeller!).responseJSON(completionHandler: { responseAvg in
                 
                 self.rateAvgArray = responseAvg.result.value as! NSArray
                 
@@ -140,7 +138,7 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
                 
                 
             })
-            Alamofire.request(Common.Global.LOCAL + "/getuser/" + idUser).responseJSON{ responseUser in
+            Alamofire.request(Common.Global.LOCAL + "/getuser/" + self.idUserSeller!).responseJSON{ responseUser in
                 let responseJsonUser = JSON(responseUser.result.value)
                 print(responseJsonUser)
                 self.userNameLabel.text = responseJsonUser[0]["LastName"].stringValue
@@ -150,13 +148,13 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
                 self.userImageViw.af_setImage(withURL: URL(string: pathPicture)!)
             }
             
-            Alamofire.request(Common.Global.LOCAL + "/getproductuser/" + idUser).responseJSON { response in
+            Alamofire.request(Common.Global.LOCAL + "/getproductuser/" + idUserSeller!).responseJSON { response in
                 self.userProductArray = response.result.value as! NSArray
                 self.collectionView.reloadData()
                 
             }
       
-            Alamofire.request(Common.Global.LOCAL + "/getuserrate/" + idUser).responseJSON { responseRating in
+            Alamofire.request(Common.Global.LOCAL + "/getuserrate/" + idUserSeller!).responseJSON { responseRating in
                 self.rateArray = responseRating.result.value as! NSArray
                 let responseRatingJson = JSON(responseRating.result.value)
                 if(self.rateArray.count != 0){
@@ -168,7 +166,6 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
                             self.tableView.reloadData()
                         }
                     }
-                }
             }
             
         }
@@ -190,6 +187,29 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProfileSellerViewController") as! ProfileSellerViewController
+        let seller  =   self.data[indexPath.row]["Id"].stringValue
+        vc.idUserSeller = seller
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productUser  = userProductArray[indexPath.item] as! Dictionary<String,Any>
+        if(productUser["Type_vente"] as? Int == 1){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "DirectBuyViewController") as! DetailsDirectSellViewController
+            vc.id = productUser["Id"] as? Int
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        } else {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        vc.id = productUser["Id"] as? Int
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
     
     
 }

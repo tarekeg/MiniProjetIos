@@ -380,9 +380,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             self.performSegue(withIdentifier: "toDetails", sender: indexPath)
 
         }
-        
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

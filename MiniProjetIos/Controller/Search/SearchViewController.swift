@@ -69,7 +69,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             self.productsArray = response.result.value as! NSArray
             let productJson = JSON(self.productsArray)
             for index in 0...self.productsArray.count - 1{
-                self.products.append(Product.init(id: productJson[index]["Id"].intValue, name: productJson[index]["Name"].stringValue, image: productJson[index]["first_image_path"].stringValue))
+                self.products.append(Product.init(id: productJson[index]["Id"].intValue, name: productJson[index]["Name"].stringValue, image: productJson[index]["first_image_path"].stringValue, typeVente: productJson[index]["Type_vente"].intValue))
                 
                 self.currentArray = self.products
 
@@ -79,7 +79,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toDetails", sender: indexPath)
+        print(currentArray)
+        let product = currentArray[indexPath.item]
+        if(product.typeVente == 1){
+            print("toAchatImmediat")
+            self.performSegue(withIdentifier: "toDirectSell", sender: indexPath)
+        } else {
+            print("toAuction")
+            self.performSegue(withIdentifier: "toDetails", sender: indexPath)
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,6 +106,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 destinationVC.id = productId
             }
+            
+        }
+        if segue.identifier == "toDirectSell"{
+            
+            
+            if let destinationVC =  segue.destination as? DetailsDirectSellViewController{
+                
+                destinationVC.id = productId
+            }
+            
         }
         
     }
@@ -120,10 +139,12 @@ class Product {
     let id: Int
     let name: String
     let image: String
+    let typeVente: Int
     
-    init(id: Int, name: String, image: String) {
+    init(id: Int, name: String, image: String, typeVente: Int) {
         self.id = id
         self.name = name
         self.image = image
+        self.typeVente = typeVente
     }
 }
