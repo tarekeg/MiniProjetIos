@@ -12,10 +12,14 @@ import Alamofire
 class ContinueLoginViewController: UIViewController {
     
     
+    @IBOutlet weak var buttonOutlet: UIButton!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
         self.phoneNumberTextField.keyboardType = UIKeyboardType.decimalPad
 
         

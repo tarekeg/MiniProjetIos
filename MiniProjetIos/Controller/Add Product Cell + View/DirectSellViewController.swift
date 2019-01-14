@@ -40,6 +40,7 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var productSubCategoryTextField: UITextField!
     @IBOutlet weak var productCategoryTextField: UITextField!
     @IBOutlet weak var productNameTextField: UITextField!
+    @IBOutlet weak var buttonOutlet: UIButton!
     
     
     let url = Common.Global.LOCAL + "/"
@@ -52,6 +53,8 @@ class DirectSellViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.title = "Achat immédiat"
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
         productCategoryTextField.delegate = self
         productSubCategoryTextField.delegate = self
         warnLabelName.isHidden = true

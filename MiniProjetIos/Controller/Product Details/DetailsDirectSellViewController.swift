@@ -3,6 +3,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import CoreData
+import Cosmos
 
 class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -15,6 +16,13 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
     var boucle : Bool = true
     let BaseUrl = Common.Global.LOCAL + "/"
     var similarArray : NSArray = []
+    var rateAvgArray : NSArray = []
+
+    
+    
+    @IBOutlet weak var rateCosmos: CosmosView!
+    @IBOutlet weak var sellerNameLabel: UILabel!
+    @IBOutlet weak var sellerImageView: UIImageView!
     
     @IBOutlet weak var similarCollectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,13 +31,29 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var subCategoryLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var productDescriptionTextView: UITextView!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+    }
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getImages()
         getData()
-        buttonOutlet.layer.cornerRadius = 5
+        rateCosmos.settings.updateOnTouch = false
+        rateCosmos.settings.fillMode = .precise
+        sellerImageView.layer.cornerRadius = 22.5
+        sellerImageView.clipsToBounds = true
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(nameSellerTapped))
+        sellerNameLabel.isUserInteractionEnabled = true
+        sellerImageView.isUserInteractionEnabled = true
+        sellerNameLabel.addGestureRecognizer(tap)
+        sellerImageView.addGestureRecognizer(tap)
+        
         
         
     }
@@ -124,6 +148,33 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
             response in
             self.product = response.result.value as! NSArray
             let singleProduct = self.product[0] as! Dictionary<String,Any>
+            let id_Seller = singleProduct["Id_user"] as! String
+            Alamofire.request(Common.Global.LOCAL + "/getaveragevalue/" + id_Seller).responseJSON(completionHandler: { responseAvg in
+                
+                self.rateAvgArray = responseAvg.result.value as! NSArray
+                
+                if let rate = self.rateAvgArray[0] as? Dictionary<String,Any> {
+                    
+                    if let rateAvg =  rate["AverageValue"] as? Double {
+                        
+                        self.rateCosmos.rating = rateAvg
+                        
+                    } else {
+                        
+                        self.rateCosmos.rating = 0.0
+                        
+                    }
+                    
+                }
+                
+            })
+            Alamofire.request(Common.Global.LOCAL  + "/getuser/" + id_Seller).responseJSON(completionHandler: { response in
+                let responseJson = JSON(response.result.value)
+                let pathPicture = responseJson[0]["profile_image_path"].stringValue
+                let nameSeller = responseJson[0]["FirstName"].stringValue + " " + responseJson[0]["LastName"].stringValue
+                self.sellerImageView.af_setImage(withURL: URL(string: pathPicture)!)
+                self.sellerNameLabel.text = nameSeller
+            })
             self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
             if(UserDefaults.standard.string(forKey: "idUser") == singleProduct["Id_user"] as? String){
                 self.buttonOutlet.isEnabled = false
@@ -212,6 +263,12 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
                 }
             }
         }
+        if segue.identifier == "toProfileSeller" {
+            
+            if let destinationVC =  segue.destination as? ProfileSellerViewController {
+                destinationVC.id = id
+            }
+        }
     }
 
     
@@ -231,6 +288,9 @@ class DetailsDirectSellViewController: UIViewController, UICollectionViewDataSou
         }
         return 0
 }
+    @objc func nameSellerTapped(){
+        performSegue(withIdentifier: "toProfileSeller", sender: nil)
+    }
  
 
 

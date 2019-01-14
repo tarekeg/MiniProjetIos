@@ -59,6 +59,7 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var productPriceTextField: UITextField!
     @IBOutlet weak var productAuctionDurationTextField: UITextField!
     @IBOutlet weak var productMinimumPriceTextField: UITextField!
+    @IBOutlet weak var buttonOutlet: UIButton!
     
     
     override func viewDidLoad() {
@@ -77,6 +78,8 @@ class AuctionSellViewController: UIViewController, UIPickerViewDelegate, UIPicke
         productDescriptionTextView.layer.borderWidth = 1.0
         self.productPriceTextField.keyboardType = UIKeyboardType.decimalPad
         self.productMinimumPriceTextField.keyboardType = UIKeyboardType.decimalPad
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
 
         
 

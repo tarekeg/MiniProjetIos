@@ -24,6 +24,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     let BaseUrl = Common.Global.LOCAL + "/"
     var AuctionTimer: Timer!
     var similarArray : NSArray = []
+    var rateAvgArray : NSArray = []
 
     @IBOutlet weak var rateCosmos: CosmosView!
     @IBOutlet weak var sellerNameLabel: UILabel!
@@ -34,7 +35,6 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonOutlet: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var subCategoryLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var productDescriptionTextView: UITextView!
@@ -44,6 +44,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
 
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+    }
    
     
 
@@ -51,18 +54,29 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         rateCosmos.settings.updateOnTouch = false
+        rateCosmos.settings.fillMode = .precise
         sellerImageView.layer.cornerRadius = 22.5
         sellerImageView.clipsToBounds = true
-
         getImages()
         getData()
-        buttonOutlet.layer.cornerRadius = 5
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
         echerieLabel.isHidden = true
         newAcutionTextField.isHidden = true
         timeLeftForAuction.isHidden = true
         self.newAcutionTextField.keyboardType = UIKeyboardType.decimalPad
         AuctionTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getDate), userInfo: nil, repeats: true)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(nameSellerTapped))
+        sellerNameLabel.isUserInteractionEnabled = true
+        sellerImageView.isUserInteractionEnabled = true
+        sellerNameLabel.addGestureRecognizer(tap)
+        sellerImageView.addGestureRecognizer(tap)
+        
       
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        AuctionTimer.invalidate()
     }
     
     
@@ -132,6 +146,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             response in
             self.product = response.result.value as! NSArray
             let singleProduct = self.product[0] as! Dictionary<String,Any>
+            if (singleProduct["Type_vente"] as? Int == 2){
                 self.dateFinAuction = singleProduct["DateFin"] as? String
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -147,6 +162,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                     self.buttonOutlet.isEnabled = false
                     self.timeLeftForAuction.isHidden = true
                     self.newAcutionTextField.isEnabled = false
+                }
             }
         }
     }
@@ -155,6 +171,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
 
      func getData(){
         
+        
         Alamofire.request(BaseUrl + "getproduct/" + String(id!)).responseJSON{
             response in
             self.product = response.result.value as! NSArray
@@ -162,6 +179,25 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             self.nameLabel.text = singleProduct["Name"] as? String
             self.title = singleProduct["Name"] as? String
             let id_Seller = singleProduct["Id_user"] as! String
+            Alamofire.request(Common.Global.LOCAL + "/getaveragevalue/" + id_Seller).responseJSON(completionHandler: { responseAvg in
+                
+                self.rateAvgArray = responseAvg.result.value as! NSArray
+                
+                if let rate = self.rateAvgArray[0] as? Dictionary<String,Any> {
+                    
+                    if let rateAvg =  rate["AverageValue"] as? Double {
+                        
+                        self.rateCosmos.rating = rateAvg
+                        
+                    } else {
+                        
+                        self.rateCosmos.rating = 0.0
+                        
+                    }
+                    
+                }
+                
+            })
             Alamofire.request(Common.Global.LOCAL  + "/getuser/" + id_Seller).responseJSON(completionHandler: { response in
                 let responseJson = JSON(response.result.value)
                 let pathPicture = responseJson[0]["profile_image_path"].stringValue
@@ -299,6 +335,19 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             }
         }
         return 0
+    }
+    
+    @objc func nameSellerTapped(){
+        performSegue(withIdentifier: "toProfileSeller", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProfileSeller" {
+           
+                if let destinationVC =  segue.destination as? ProfileSellerViewController {
+                        destinationVC.id = id
+            }
+        }
     }
     
     

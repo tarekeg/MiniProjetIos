@@ -19,6 +19,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var collectionView: UICollectionView!
     
     
+    @IBOutlet weak var buttonOutlet: UIButton!
     
     
     
@@ -41,7 +42,9 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imageToAdd: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-             
+        
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
    
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(tapGesture1))
         imageToAdd.addGestureRecognizer(tap1)

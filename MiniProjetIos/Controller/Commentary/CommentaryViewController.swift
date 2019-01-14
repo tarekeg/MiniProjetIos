@@ -11,28 +11,25 @@ import Alamofire
 import SwiftyJSON
 import PKHUD
 
-class CommentaryViewController: UIViewController, UITextViewDelegate {
+class CommentaryViewController: UIViewController {
     
     @IBOutlet weak var nameReceiver: UILabel!
     @IBOutlet weak var nameProduct: UILabel!
+    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var commentaryTextField: UITextField!
     
-    @IBOutlet weak var commentaryTextView: UITextView!
     var placeholderLabel : UILabel!
     var id : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        commentaryTextView.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "Entrer votre commentaire"
-        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (commentaryTextView.font?.pointSize)!)
-        placeholderLabel.sizeToFit()
-        commentaryTextView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (commentaryTextView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor(red:0.00, green:0.52, blue:1.00, alpha:1.0)
-        placeholderLabel.isHidden = !commentaryTextView.text.isEmpty
         UpdateData()
-        
-        
+        buttonOutlet.layer.cornerRadius = 20.0
+        buttonOutlet.clipsToBounds = true
+        commentaryTextField.layer.cornerRadius = 10.0
+        commentaryTextField.layer.masksToBounds = true
+        let myColor = UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 1.0)
+        commentaryTextField.layer.borderColor = myColor.cgColor
+        commentaryTextField.layer.borderWidth = 1.0
 
     }
     
@@ -52,7 +49,7 @@ class CommentaryViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func sendTapped(_ sender: Any) {
         
-        if(commentaryTextView.text == ""){
+        if(commentaryTextField.text == ""){
             
             let alert = UIAlertController(title: "Champ vide", message: "Vous ne pouvez pas envoyer un commentaire vide", preferredStyle: .alert)
             
@@ -71,8 +68,11 @@ class CommentaryViewController: UIViewController, UITextViewDelegate {
             let idReceiver = UserDefaults.standard.string(forKey: "idReceiver")
             print("idSender = ",idSender!)
             print("idReceiver = ",idReceiver!)
-            let url = Common.Global.LOCAL + "/addcommentary/" + idSender! + "/" + idReceiver! + "/" + commentaryTextView.text
             
+            let firstPart = Common.Global.LOCAL + "/addcommentary/" + idSender!
+            let secondPart = "/" + idReceiver! + "/" + commentaryTextField.text!
+            
+            let url = firstPart + secondPart
             let finalUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             Alamofire.request(finalUrl!)
             dismiss(animated: true, completion: nil)
@@ -80,9 +80,6 @@ class CommentaryViewController: UIViewController, UITextViewDelegate {
         }
         
         
-    }
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
     @IBAction func backToHome(_ sender: Any) {
