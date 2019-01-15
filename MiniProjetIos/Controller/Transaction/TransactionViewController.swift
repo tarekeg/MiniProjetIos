@@ -15,7 +15,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     var testBool = false
     var productArray : NSArray = []
-    var transactionArray : NSArray = []
+    var transactionArray : NSMutableArray = []
     var data: [JSON] = []
     let baseUrl = Common.Global.LOCAL + "/"
     
@@ -71,6 +71,8 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         labelAuction.text = "\(prix!) DT"
         labelMyAuction.text = "\(myAuction) DT"
         
+        let prixOptionel  = self.data[indexPath.row]["PrixMinimumEnchere"].doubleValue
+        
         if (prix! > myAuction && diffInSeconds! < 0) {
             indication.text = "Vous avez perdu l'enchère"
         } else if (prix! <= myAuction && diffInSeconds! < 0){
@@ -79,6 +81,8 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             indication.text = "Vous n'êtes pas le meilleur enchériesseur"
         } else if (prix! <= myAuction && diffInSeconds! > 0){
             indication.text = "Vous êtes le meilleur enchériesseur"
+        } else if (prix! <= myAuction && diffInSeconds! < 0 && prixOptionel > myAuction){
+            indication.text = "l'enchère n'a pas atteint le prix optionnel"
         }
         
         return cell
@@ -93,7 +97,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         self.data = []
         Alamofire.request(self.baseUrl + "gettransaction/" + UserDefaults.standard.string(forKey: "idUser")!).responseJSON { response in
             let resultJson = JSON(response.result.value!)
-            self.transactionArray = response.result.value as! NSArray
+            self.transactionArray = (response.result.value as! NSArray).mutableCopy() as! NSMutableArray
             if self.transactionArray.count != 0{
                 for index in 0...self.transactionArray.count - 1{
                     let idProduct : Int = resultJson[index]["Id_product"].intValue
@@ -108,7 +112,6 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             }
             
         }
-
         
     }
     func json(from object:Any) -> String? {
@@ -138,6 +141,20 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             }
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let transaction = transactionArray[indexPath.row] as! Dictionary<String,Any>
+            let transactionId = transaction["Id"] as! Int
+            print(transactionId)
+            Alamofire.request(Common.Global.LOCAL + "/deletetransaction/" + String(transactionId))
+            transactionArray.removeObject(at: indexPath.row)
+            self.data.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            getData()
+            tableView.reloadData()
+        }
     }
 
 }

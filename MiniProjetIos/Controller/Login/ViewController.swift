@@ -96,6 +96,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInDeleg
         if let error = error {
             print("\(error.localizedDescription)")
         } else {
+            
             let userId = user.userID
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
@@ -110,9 +111,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInDeleg
             
             let urlString = request.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             Alamofire.request(urlString!,method: .post)
-            
+            if(UserDefaults.standard.string(forKey: "testGoogleSignIn") != "1"){
+                performSegue(withIdentifier: "continueLog", sender: nil)
+            } else {
             performSegue(withIdentifier: "toHome", sender: nil)
             }
+        }
     }
     
     

@@ -75,9 +75,11 @@ class CommentaryViewController: UIViewController {
             let url = firstPart + secondPart
             let finalUrl = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             Alamofire.request(finalUrl!)
+            Alamofire.request(Common.Global.LOCAL + "/sendnotifcomment/" + idSender! + "/" + idReceiver!)
             dismiss(animated: true, completion: nil)
             
         }
+       
         
         
     }

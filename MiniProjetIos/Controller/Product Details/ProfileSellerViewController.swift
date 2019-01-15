@@ -41,7 +41,6 @@ class ProfileSellerViewController: UIViewController,UITableViewDataSource, UITab
     
     
     override func viewDidLoad() {
-        print("tesssssssst",idUserSeller)
         super.viewDidLoad()
         tableView.isHidden = true
         getData()

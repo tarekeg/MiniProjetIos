@@ -87,6 +87,7 @@ class CommentaryDetailsViewController: UIViewController, UITableViewDataSource, 
             let finalRequest = Common.Global.LOCAL + "/addcommentary/" + myId! + "/" + idSender! + "/" + message!
             let finalUrl = finalRequest.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             Alamofire.request(finalUrl!)
+            Alamofire.request(Common.Global.LOCAL + "/sendnotifcomment/" + myId! + "/" + idSender!)
             messageTextField.text = ""
             HUD.flash(.success , delay: 1.0)
             getData()
@@ -105,5 +106,8 @@ class CommentaryDetailsViewController: UIViewController, UITableViewDataSource, 
             let indexPath = IndexPath(row: self.commentariesArray.count-1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        AuctionTimer.invalidate()
     }
 }

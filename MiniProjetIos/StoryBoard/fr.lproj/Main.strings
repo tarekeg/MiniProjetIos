@@ -1,0 +1,459 @@
+
+/* Class = "UITextField"; placeholder = "Téléphone"; ObjectID = "0CX-gz-Em7"; */
+"0CX-gz-Em7.placeholder" = "Téléphone";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0IB-BX-qun"; */
+"0IB-BX-qun.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Valider"; ObjectID = "0LR-NW-tWH"; */
+"0LR-NW-tWH.normalTitle" = "Valider";
+
+/* Class = "UISegmentedControl"; 0Xb-Jn-iDn.segmentTitles[0] = "Produits"; ObjectID = "0Xb-Jn-iDn"; */
+"0Xb-Jn-iDn.segmentTitles[0]" = "Produits";
+
+/* Class = "UISegmentedControl"; 0Xb-Jn-iDn.segmentTitles[1] = "Avis"; ObjectID = "0Xb-Jn-iDn"; */
+"0Xb-Jn-iDn.segmentTitles[1]" = "Avis";
+
+/* Class = "UILabel"; text = "Vendeur / (se) :"; ObjectID = "0c0-vF-2yb"; */
+"0c0-vF-2yb.text" = "Vendeur / (se) :";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0dg-ua-7Yt"; */
+"0dg-ua-7Yt.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Sous catégorie:"; ObjectID = "0s3-lj-Z0a"; */
+"0s3-lj-Z0a.text" = "Sous catégorie:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0sN-92-tJJ"; */
+"0sN-92-tJJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1F1-ig-QGE"; */
+"1F1-ig-QGE.text" = "Label";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "1mS-rZ-UUJ"; */
+"1mS-rZ-UUJ.text" = "Champ vide";
+
+/* Class = "UITextField"; placeholder = "Nouvelle Enchère"; ObjectID = "2fC-U7-k00"; */
+"2fC-U7-k00.placeholder" = "Nouvelle Enchère";
+
+/* Class = "UILabel"; text = "Login with Facebook or Google"; ObjectID = "2tt-4n-umO"; */
+"2tt-4n-umO.text" = "Login with Facebook or Google";
+
+/* Class = "UITextField"; placeholder = "Choisissez la sous catégorie"; ObjectID = "2x2-QY-ocz"; */
+"2x2-QY-ocz.placeholder" = "Choisissez la sous catégorie";
+
+/* Class = "UITextField"; placeholder = "Ajouter votre commentaire..."; ObjectID = "3Jz-Vg-wYQ"; */
+"3Jz-Vg-wYQ.placeholder" = "Ajouter votre commentaire...";
+
+/* Class = "UILabel"; text = "Conditions d'Utilisation"; ObjectID = "5J8-bM-ofU"; */
+"5J8-bM-ofU.text" = "Conditions d'Utilisation";
+
+/* Class = "UILabel"; text = "Auction Master"; ObjectID = "5S3-1j-zKz"; */
+"5S3-1j-zKz.text" = "Auction Master";
+
+/* Class = "UILabel"; text = "Vendeur / (se) :"; ObjectID = "5YT-4h-vDS"; */
+"5YT-4h-vDS.text" = "Vendeur / (se) :";
+
+/* Class = "UITabBarItem"; title = "Réglages"; ObjectID = "5ti-Le-CXd"; */
+"5ti-Le-CXd.title" = "Réglages";
+
+/* Class = "UITextField"; placeholder = "Adresse"; ObjectID = "6aI-aj-54n"; */
+"6aI-aj-54n.placeholder" = "Adresse";
+
+/* Class = "UITabBarItem"; title = "Ajout"; ObjectID = "7Fg-h5-Ifz"; */
+"7Fg-h5-Ifz.title" = "Ajout";
+
+/* Class = "UINavigationItem"; title = "Ajout Image"; ObjectID = "7Nx-Of-O9G"; */
+"7Nx-Of-O9G.title" = "Ajout Image";
+
+/* Class = "UITextField"; placeholder = "Prix de vente"; ObjectID = "7ku-4a-9Qs"; */
+"7ku-4a-9Qs.placeholder" = "Prix de vente";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "7rI-LT-5rN"; */
+"7rI-LT-5rN.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "Mon Enchère:"; ObjectID = "8Bb-8z-SBh"; */
+"8Bb-8z-SBh.text" = "Mon Enchère:";
+
+/* Class = "UILabel"; text = "Description:"; ObjectID = "8PW-pW-zp3"; */
+"8PW-pW-zp3.text" = "Description:";
+
+/* Class = "UILabel"; text = "Vendeur:"; ObjectID = "8VF-ya-RPp"; */
+"8VF-ya-RPp.text" = "Vendeur:";
+
+/* Class = "UINavigationItem"; title = "Acceuil"; ObjectID = "8qo-Xq-zIV"; */
+"8qo-Xq-zIV.title" = "Acceuil";
+
+/* Class = "UIBarButtonItem"; title = "Retour"; ObjectID = "9ko-Y4-PkM"; */
+"9ko-Y4-PkM.title" = "Retour";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AIK-vA-b0K"; */
+"AIK-vA-b0K.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Mon Profil"; ObjectID = "ASd-SW-Lu7"; */
+"ASd-SW-Lu7.title" = "Mon Profil";
+
+/* Class = "UILabel"; text = "Téléphone:"; ObjectID = "BIA-h8-sqa"; */
+"BIA-h8-sqa.text" = "Téléphone:";
+
+/* Class = "UITextField"; placeholder = "nom de votre produit"; ObjectID = "BNR-sy-FQF"; */
+"BNR-sy-FQF.placeholder" = "nom de votre produit";
+
+/* Class = "UISearchBar"; placeholder = "Rechercher"; ObjectID = "C2t-wY-2Iu"; */
+"C2t-wY-2Iu.placeholder" = "Rechercher";
+
+/* Class = "UISearchBar"; C2t-wY-2Iu.scopeButtonTitles[0] = "Tout"; ObjectID = "C2t-wY-2Iu"; */
+"C2t-wY-2Iu.scopeButtonTitles[0]" = "Tout";
+
+/* Class = "UISearchBar"; C2t-wY-2Iu.scopeButtonTitles[1] = "Achat immédiat"; ObjectID = "C2t-wY-2Iu"; */
+"C2t-wY-2Iu.scopeButtonTitles[1]" = "Achat immédiat";
+
+/* Class = "UISearchBar"; C2t-wY-2Iu.scopeButtonTitles[2] = "Enchères"; ObjectID = "C2t-wY-2Iu"; */
+"C2t-wY-2Iu.scopeButtonTitles[2]" = "Enchères";
+
+/* Class = "UIBarButtonItem"; title = "Retour"; ObjectID = "D2D-JF-yhB"; */
+"D2D-JF-yhB.title" = "Retour";
+
+/* Class = "UITextField"; placeholder = "Ex Ecran Pc"; ObjectID = "D5G-Gg-pgw"; */
+"D5G-Gg-pgw.placeholder" = "Ex Ecran Pc";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DtU-g7-F60"; */
+"DtU-g7-F60.text" = "Label";
+
+/* Class = "UILabel"; text = "Adresse:"; ObjectID = "EDd-Ub-c4u"; */
+"EDd-Ub-c4u.text" = "Adresse:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "EOo-vK-NEt"; */
+"EOo-vK-NEt.text" = "Label";
+
+/* Class = "UILabel"; text = "Nom produit:"; ObjectID = "EfF-bs-K7C"; */
+"EfF-bs-K7C.text" = "Nom produit:";
+
+/* Class = "UILabel"; text = "Temps restant"; ObjectID = "F3E-qz-aCa"; */
+"F3E-qz-aCa.text" = "Temps restant";
+
+/* Class = "UILabel"; text = "Adresse:"; ObjectID = "FCa-vQ-LCA"; */
+"FCa-vQ-LCA.text" = "Adresse:";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FH6-Wg-sew"; */
+"FH6-Wg-sew.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FS0-GN-ywW"; */
+"FS0-GN-ywW.text" = "Label";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "FmK-kh-qUp"; */
+"FmK-kh-qUp.text" = "Champ vide";
+
+/* Class = "UILabel"; text = "Sous Catégorie:"; ObjectID = "FnM-0x-HhU"; */
+"FnM-0x-HhU.text" = "Sous Catégorie:";
+
+/* Class = "UILabel"; text = "Nom:"; ObjectID = "GeI-qV-9Sv"; */
+"GeI-qV-9Sv.text" = "Nom:";
+
+/* Class = "UILabel"; text = "test"; ObjectID = "GvA-fF-HQL"; */
+"GvA-fF-HQL.text" = "test";
+
+/* Class = "UITabBarItem"; title = "Mes enchères"; ObjectID = "GvF-6p-s7a"; */
+"GvF-6p-s7a.title" = "Mes enchères";
+
+/* Class = "UIButton"; normalTitle = "Ajouter un avis"; ObjectID = "H1Q-32-g0V"; */
+"H1Q-32-g0V.normalTitle" = "Ajouter un avis";
+
+/* Class = "UITextField"; placeholder = "Optionnel"; ObjectID = "H6c-YH-IV8"; */
+"H6c-YH-IV8.placeholder" = "Optionnel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HSg-n4-gba"; */
+"HSg-n4-gba.text" = "Label";
+
+/* Class = "UILabel"; text = "Produits similaries"; ObjectID = "Hf5-Wa-ytl"; */
+"Hf5-Wa-ytl.text" = "Produits similaries";
+
+/* Class = "UILabel"; text = "Enchérir:"; ObjectID = "Hsv-ym-3de"; */
+"Hsv-ym-3de.text" = "Enchérir:";
+
+/* Class = "UITextField"; placeholder = "Durée enchère"; ObjectID = "Huz-s7-fWw"; */
+"Huz-s7-fWw.placeholder" = "Durée enchère";
+
+/* Class = "UITextField"; placeholder = "Prix de vente"; ObjectID = "IHR-dH-ghy"; */
+"IHR-dH-ghy.placeholder" = "Prix de vente";
+
+/* Class = "UILabel"; text = "Ajouter votre numéro de téléphone pour terminer votre inscription"; ObjectID = "IQr-T1-uqe"; */
+"IQr-T1-uqe.text" = "Ajouter votre numéro de téléphone pour terminer votre inscription";
+
+/* Class = "UIButton"; normalTitle = "Valider"; ObjectID = "Itt-Kv-Jrb"; */
+"Itt-Kv-Jrb.normalTitle" = "Valider";
+
+/* Class = "UILabel"; text = "Sous catégorie:"; ObjectID = "JgF-WP-bCn"; */
+"JgF-WP-bCn.text" = "Sous catégorie:";
+
+/* Class = "UINavigationItem"; title = "Ajout Avis"; ObjectID = "KPi-5y-AGn"; */
+"KPi-5y-AGn.title" = "Ajout Avis";
+
+/* Class = "UILabel"; text = "Prénom:"; ObjectID = "Ki7-Uq-Yb1"; */
+"Ki7-Uq-Yb1.text" = "Prénom:";
+
+/* Class = "UILabel"; text = "Prix"; ObjectID = "KlY-eb-yLC"; */
+"KlY-eb-yLC.text" = "Prix";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "Kmc-SD-yDb"; */
+"Kmc-SD-yDb.text" = "Champ vide";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "M6Y-Uc-RnZ"; */
+"M6Y-Uc-RnZ.text" = "Label";
+
+/* Class = "UILabel"; text = "Ajouter au minimum 1 image"; ObjectID = "Mvr-dr-nbV"; */
+"Mvr-dr-nbV.text" = "Ajouter au minimum 1 image";
+
+/* Class = "UILabel"; text = "Mes Produits / Avis"; ObjectID = "NrQ-RN-bbd"; */
+"NrQ-RN-bbd.text" = "Mes Produits / Avis";
+
+/* Class = "UILabel"; text = "Mes Favoris"; ObjectID = "OC5-HG-40e"; */
+"OC5-HG-40e.text" = "Mes Favoris";
+
+/* Class = "UIBarButtonItem"; title = "Acceuil"; ObjectID = "OwV-bT-dxN"; */
+"OwV-bT-dxN.title" = "Acceuil";
+
+/* Class = "UILabel"; text = "Prix de départ:"; ObjectID = "P4H-um-Mj3"; */
+"P4H-um-Mj3.text" = "Prix de départ:";
+
+/* Class = "UITableViewSection"; headerTitle = "Mes préférences"; ObjectID = "PXl-gp-73C"; */
+"PXl-gp-73C.headerTitle" = "Mes préférences";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "PwN-mi-Axr"; */
+"PwN-mi-Axr.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Se déconnecter"; ObjectID = "Q02-Hy-IVU"; */
+"Q02-Hy-IVU.normalTitle" = "Se déconnecter";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "Q5c-bZ-gkh"; */
+"Q5c-bZ-gkh.text" = "Champ vide";
+
+/* Class = "UILabel"; text = "Prénom:"; ObjectID = "QW4-FW-8Pr"; */
+"QW4-FW-8Pr.text" = "Prénom:";
+
+/* Class = "UILabel"; text = "Toucher les étoiles pour noter le vendeur"; ObjectID = "QX3-8c-gjP"; */
+"QX3-8c-gjP.text" = "Toucher les étoiles pour noter le vendeur";
+
+/* Class = "UINavigationItem"; title = "Commentaire"; ObjectID = "Qyr-7K-yE1"; */
+"Qyr-7K-yE1.title" = "Commentaire";
+
+/* Class = "UITextField"; placeholder = "Téléphone"; ObjectID = "RR7-ut-Z7P"; */
+"RR7-ut-Z7P.placeholder" = "Téléphone";
+
+/* Class = "UIBarButtonItem"; title = "Modifier"; ObjectID = "RU4-Zh-LHS"; */
+"RU4-Zh-LHS.title" = "Modifier";
+
+/* Class = "UILabel"; text = "Produit:"; ObjectID = "RzY-FJ-zEc"; */
+"RzY-FJ-zEc.text" = "Produit:";
+
+/* Class = "UITabBarItem"; title = "Recherche"; ObjectID = "S2d-X8-ldd"; */
+"S2d-X8-ldd.title" = "Recherche";
+
+/* Class = "UILabel"; text = "Nom produit:"; ObjectID = "SCk-M3-LOW"; */
+"SCk-M3-LOW.text" = "Nom produit:";
+
+/* Class = "UITextField"; placeholder = "Ajouter votre commentaire..."; ObjectID = "TK9-fK-Emt"; */
+"TK9-fK-Emt.placeholder" = "Ajouter votre commentaire...";
+
+/* Class = "UIButton"; normalTitle = "C'est parti"; ObjectID = "Tfj-th-ncd"; */
+"Tfj-th-ncd.normalTitle" = "C'est parti";
+
+/* Class = "UILabel"; text = "Choisissez le type de vente désiré"; ObjectID = "Tjj-nH-qxK"; */
+"Tjj-nH-qxK.text" = "Choisissez le type de vente désiré";
+
+/* Class = "UIButton"; normalTitle = "Valider"; ObjectID = "VYH-eK-Rgb"; */
+"VYH-eK-Rgb.normalTitle" = "Valider";
+
+/* Class = "UILabel"; text = "Champ enchère vide"; ObjectID = "VpR-Qc-7ob"; */
+"VpR-Qc-7ob.text" = "Champ enchère vide";
+
+/* Class = "UILabel"; text = "Nom:"; ObjectID = "WGQ-g5-2SP"; */
+"WGQ-g5-2SP.text" = "Nom:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XQ3-zD-sjg"; */
+"XQ3-zD-sjg.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XnR-WE-dlv"; */
+"XnR-WE-dlv.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Y9s-AU-UDn"; */
+"Y9s-AU-UDn.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Prénom"; ObjectID = "Ye6-5m-Ifg"; */
+"Ye6-5m-Ifg.placeholder" = "Prénom";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Zvb-Nu-t6W"; */
+"Zvb-Nu-t6W.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aIU-1L-hRw"; */
+"aIU-1L-hRw.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Recherche"; ObjectID = "aO5-4W-vrR"; */
+"aO5-4W-vrR.title" = "Recherche";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "b2h-gk-jZL"; */
+"b2h-gk-jZL.text" = "Label";
+
+/* Class = "UILabel"; text = "DerniereEnchere"; ObjectID = "bPc-hE-64T"; */
+"bPc-hE-64T.text" = "DerniereEnchere";
+
+/* Class = "UILabel"; text = "Prix"; ObjectID = "bPm-pK-5Uv"; */
+"bPm-pK-5Uv.text" = "Prix";
+
+/* Class = "UILabel"; text = "Dernière Enchere:"; ObjectID = "bkA-J2-zN1"; */
+"bkA-J2-zN1.text" = "Dernière Enchere:";
+
+/* Class = "UILabel"; text = "Prix minimum à atteindre:"; ObjectID = "c6C-qs-Ske"; */
+"c6C-qs-Ske.text" = "Prix minimum à atteindre:";
+
+/* Class = "UILabel"; text = "Nom:"; ObjectID = "cdB-96-OH5"; */
+"cdB-96-OH5.text" = "Nom:";
+
+/* Class = "UIBarButtonItem"; title = "Mes messages"; ObjectID = "cvT-e1-BgI"; */
+"cvT-e1-BgI.title" = "Mes messages";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dA1-81-Rgu"; */
+"dA1-81-Rgu.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Mes commentaires"; ObjectID = "dek-TX-xVR"; */
+"dek-TX-xVR.title" = "Mes commentaires";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dhx-Vi-nQJ"; */
+"dhx-Vi-nQJ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Envoyer"; ObjectID = "ep2-wM-QV3"; */
+"ep2-wM-QV3.normalTitle" = "Envoyer";
+
+/* Class = "UITabBarItem"; title = "Acceuil"; ObjectID = "ezQ-Zi-1c8"; */
+"ezQ-Zi-1c8.title" = "Acceuil";
+
+/* Class = "UITextField"; placeholder = "Choisissez la sous catégorie"; ObjectID = "fB4-6a-1Po"; */
+"fB4-6a-1Po.placeholder" = "Choisissez la sous catégorie";
+
+/* Class = "UILabel"; text = "Email:"; ObjectID = "fQJ-zo-3fn"; */
+"fQJ-zo-3fn.text" = "Email:";
+
+/* Class = "UILabel"; text = "Etat Enchère:"; ObjectID = "fgM-9C-Yxe"; */
+"fgM-9C-Yxe.text" = "Etat Enchère:";
+
+/* Class = "UITextField"; placeholder = "Taper votre message"; ObjectID = "gex-Ko-2zL"; */
+"gex-Ko-2zL.placeholder" = "Taper votre message";
+
+/* Class = "UILabel"; text = "Prix en dinars:"; ObjectID = "gqC-E6-jmy"; */
+"gqC-E6-jmy.text" = "Prix en dinars:";
+
+/* Class = "UITableViewSection"; headerTitle = "A propos"; ObjectID = "i8Y-Yk-sFO"; */
+"i8Y-Yk-sFO.headerTitle" = "A propos";
+
+/* Class = "UITableViewSection"; headerTitle = "Mes produits / Mes favoris"; ObjectID = "k3H-UN-gX5"; */
+"k3H-UN-gX5.headerTitle" = "Mes produits / Mes favoris";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kfC-gE-VDE"; */
+"kfC-gE-VDE.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "l3D-kQ-LOX"; */
+"l3D-kQ-LOX.text" = "Label";
+
+/* Class = "UILabel"; text = "Sous Catégorie:"; ObjectID = "l3S-v9-BLj"; */
+"l3S-v9-BLj.text" = "Sous Catégorie:";
+
+/* Class = "UIBarButtonItem"; title = "Acceuil"; ObjectID = "ljF-Gz-jyK"; */
+"ljF-Gz-jyK.title" = "Acceuil";
+
+/* Class = "UILabel"; text = "Mon Profil"; ObjectID = "mBc-XF-XRT"; */
+"mBc-XF-XRT.text" = "Mon Profil";
+
+/* Class = "UILabel"; text = "Contient des chiffre ou vide"; ObjectID = "mCo-pb-tXq"; */
+"mCo-pb-tXq.text" = "Contient des chiffre ou vide";
+
+/* Class = "UILabel"; text = "Catégorie:"; ObjectID = "mDU-Ml-sfs"; */
+"mDU-Ml-sfs.text" = "Catégorie:";
+
+/* Class = "UILabel"; text = "Description:"; ObjectID = "mJM-V0-vgW"; */
+"mJM-V0-vgW.text" = "Description:";
+
+/* Class = "UIButton"; normalTitle = "Valider"; ObjectID = "mNX-ZV-y3q"; */
+"mNX-ZV-y3q.normalTitle" = "Valider";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "n6h-6i-7T9"; */
+"n6h-6i-7T9.text" = "Champ vide";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "n97-Ak-hKb"; */
+"n97-Ak-hKb.text" = "Label";
+
+/* Class = "UILabel"; text = "Description:"; ObjectID = "nGv-h6-6JW"; */
+"nGv-h6-6JW.text" = "Description:";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nXB-iQ-xdJ"; */
+"nXB-iQ-xdJ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Prix:"; ObjectID = "nh7-nP-CgX"; */
+"nh7-nP-CgX.text" = "Prix:";
+
+/* Class = "UITextField"; placeholder = "Choisissez la catégorie"; ObjectID = "onb-7R-RBz"; */
+"onb-7R-RBz.placeholder" = "Choisissez la catégorie";
+
+/* Class = "UILabel"; text = "Description:"; ObjectID = "pJR-oS-NJi"; */
+"pJR-oS-NJi.text" = "Description:";
+
+/* Class = "UITextField"; placeholder = "Choisissez la catégorie"; ObjectID = "q5h-Ml-jnu"; */
+"q5h-Ml-jnu.placeholder" = "Choisissez la catégorie";
+
+/* Class = "UILabel"; text = "Nom"; ObjectID = "qRv-3t-YAq"; */
+"qRv-3t-YAq.text" = "Nom";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rCy-Zi-aCb"; */
+"rCy-Zi-aCb.text" = "Label";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "rNV-rH-HDZ"; */
+"rNV-rH-HDZ.text" = "Champ vide";
+
+/* Class = "UILabel"; text = "Champ vide"; ObjectID = "te2-Hb-bgF"; */
+"te2-Hb-bgF.text" = "Champ vide";
+
+/* Class = "UISegmentedControl"; tiK-0I-NEh.segmentTitles[0] = "Achat immédiat"; ObjectID = "tiK-0I-NEh"; */
+"tiK-0I-NEh.segmentTitles[0]" = "Achat immédiat";
+
+/* Class = "UISegmentedControl"; tiK-0I-NEh.segmentTitles[1] = "Enchère"; ObjectID = "tiK-0I-NEh"; */
+"tiK-0I-NEh.segmentTitles[1]" = "Enchère";
+
+/* Class = "UITableViewSection"; headerTitle = "Mes informations"; ObjectID = "tkH-Np-Ejb"; */
+"tkH-Np-Ejb.headerTitle" = "Mes informations";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tsS-ad-Ydk"; */
+"tsS-ad-Ydk.text" = "Label";
+
+/* Class = "UILabel"; text = "Nom:"; ObjectID = "uDh-Vm-hcN"; */
+"uDh-Vm-hcN.text" = "Nom:";
+
+/* Class = "UINavigationItem"; title = "Mes Transactions"; ObjectID = "uuK-dn-VA6"; */
+"uuK-dn-VA6.title" = "Mes Transactions";
+
+/* Class = "UILabel"; text = "Produits similaries"; ObjectID = "veg-Hk-P1Q"; */
+"veg-Hk-P1Q.text" = "Produits similaries";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "w4T-td-FP8"; */
+"w4T-td-FP8.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Durée Enchère:"; ObjectID = "wbc-62-sNZ"; */
+"wbc-62-sNZ.text" = "Durée Enchère:";
+
+/* Class = "UILabel"; text = "Catégorie:"; ObjectID = "wzU-tt-FSV"; */
+"wzU-tt-FSV.text" = "Catégorie:";
+
+/* Class = "UITextField"; placeholder = "Nom"; ObjectID = "x3H-Aq-0Eq"; */
+"x3H-Aq-0Eq.placeholder" = "Nom";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "xFn-CF-u8m"; */
+"xFn-CF-u8m.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "TypeVente"; ObjectID = "xPm-U4-OIH"; */
+"xPm-U4-OIH.text" = "TypeVente";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "y3I-eX-Vd9"; */
+"y3I-eX-Vd9.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Envoyer commentaire"; ObjectID = "ye7-MM-tiM"; */
+"ye7-MM-tiM.normalTitle" = "Envoyer commentaire";
+
+/* Class = "UIButton"; normalTitle = "Changer photo de profil"; ObjectID = "zbn-oZ-ShJ"; */
+"zbn-oZ-ShJ.normalTitle" = "Changer photo de profil";

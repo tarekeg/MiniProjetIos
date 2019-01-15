@@ -13,7 +13,6 @@ import SwiftyJSON
 class MyCommentariesTableViewController: UITableViewController {
     
     var commentariesArray : NSArray = []
-    var productData: [JSON] = []
     var userData: [JSON] = []
 
     override func viewDidLoad() {
@@ -36,7 +35,7 @@ class MyCommentariesTableViewController: UITableViewController {
         let content = cell.viewWithTag(0)
         
         let nameSender = content?.viewWithTag(1) as! UILabel
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             nameSender.text = (self.userData[indexPath.row]["FirstName"].stringValue + " " + self.userData[indexPath.row]["LastName"].stringValue + " vous a envoyé un commentaire")
 
         }
@@ -62,7 +61,6 @@ class MyCommentariesTableViewController: UITableViewController {
     }
     
     func getData(){
-         self.productData = []
          self.userData = []
         Alamofire.request(Common.Global.LOCAL + "/getcommentaries/" + UserDefaults.standard.string(forKey: "idUser")!).responseJSON { response in
             self.commentariesArray = response.result.value as! NSArray

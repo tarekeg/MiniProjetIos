@@ -55,6 +55,7 @@ class ContinueLoginViewController: UIViewController {
         } else {
         updataUserData()
             self.phoneNumberTextField.text = ""
+            UserDefaults.standard.setValue("1", forKey: "testGoogleSignIn")
                 self.performSegue(withIdentifier: "toHome", sender: nil)
 
         }

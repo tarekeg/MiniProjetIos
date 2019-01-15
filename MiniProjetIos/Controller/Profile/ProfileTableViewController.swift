@@ -120,14 +120,14 @@ class ProfileTableViewController: UITableViewController,  FBSDKLoginButtonDelega
                 let user = self.userArray[0] as! Dictionary<String,Any>
                 
 //                if user["profile_image_path"] == nil {
-                    let pathPicture = user["profile_image_path"] as! String
+                if let pathPicture = user["profile_image_path"] as? String {
                     self.profileImageView.af_setImage(withURL: URL(string: pathPicture)!)
-//                } else {
-//                    let urlPath = UserDefaults.standard.string(forKey: "profileImg")
-//                    let url = URL(string: urlPath!)
-//                    self.downloadImage(from: url!)
-//
-//                    }
+                } else {
+                    let urlPath = UserDefaults.standard.string(forKey: "profileImg")
+                    let url = URL(string: urlPath!)
+                    self.downloadImage(from: url!)
+
+                    }
                 
                 let userFirstName = user["FirstName"] as! String
                 let userLastName = user["LastName"] as! String

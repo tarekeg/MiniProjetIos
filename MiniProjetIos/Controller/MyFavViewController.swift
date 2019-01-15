@@ -40,7 +40,7 @@ class MyFavViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let productNameLabel = content?.viewWithTag(2) as! UILabel
         let productSellType = content?.viewWithTag(3)  as! UILabel
         
-        productNameLabel.text = product.value(forKey: "name") as! String
+        productNameLabel.text = product.value(forKey: "name") as? String
         let productImagePath = product.value(forKey: "firstImagePath") as! String
         productImageView.af_setImage(withURL: URL(string: productImagePath)!)
         

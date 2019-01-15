@@ -26,6 +26,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     var AuctionTimer: Timer!
     var similarArray : NSArray = []
     var rateAvgArray : NSArray = []
+    var transactionData: [JSON] = []
     var idUser : String?
 
     @IBOutlet weak var addToFav: UIBarButtonItem!
@@ -54,7 +55,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getTransaction()
         rateCosmos.settings.updateOnTouch = false
         rateCosmos.settings.fillMode = .precise
         sellerImageView.layer.cornerRadius = 22.5
@@ -120,12 +121,19 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(collectionView == self.similarCollectionView){
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-            let similarProduct  = similarArray[indexPath.item] as! Dictionary<String,Any>
-            vc.id = similarProduct["Id"] as? Int
-            self.navigationController?.pushViewController(vc, animated: true)
-            
+            let productUser  = similarArray[indexPath.item] as! Dictionary<String,Any>
+            if(productUser["Type_vente"] as? Int == 1){
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "DirectBuyViewController") as! DetailsDirectSellViewController
+                vc.id = productUser["Id"] as? Int
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                vc.id = productUser["Id"] as? Int
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
    
@@ -156,15 +164,24 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                 let yourDate = formatter.date(from: self.dateFinAuction!)
                 let currentDateTime = Date()
                 let diffInSeconds = Calendar.current.dateComponents([.second], from:currentDateTime , to: yourDate!).second
+                
                 let (j,h,m,s) = self.secondsToHoursMinutesSeconds(seconds: diffInSeconds!)
                 self.timeLeftForAuction.text = "\(j) Jour(s):\(h) H:\(m) M:\(s) S"
                 self.timeLeftForAuction.isHidden = false
                 self.priceLabel.text = String(singleProduct["PrixEnchere"] as! Double) + " DT"
                 if(diffInSeconds! <= 0){
-                    self.buttonOutlet.setTitle("Enchère terminé", for: .normal)
-                    self.buttonOutlet.isEnabled = false
-                    self.timeLeftForAuction.isHidden = true
-                    self.newAcutionTextField.isEnabled = false
+                    if(self.transactionData[0]["Enchere"].doubleValue == singleProduct["PrixEnchere"] as! Double){
+                        self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
+                        self.buttonOutlet.isEnabled = true
+                        self.timeLeftForAuction.isHidden = true
+                        self.newAcutionTextField.isEnabled = false
+                    } else {
+                        self.buttonOutlet.setTitle("Enchère terminé", for: .normal)
+                        self.buttonOutlet.isEnabled = false
+                        self.timeLeftForAuction.isHidden = true
+                        self.newAcutionTextField.isEnabled = false
+                    }
+                    
                 }
             }
         }
@@ -223,13 +240,13 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             if(singleProduct["Type_vente"] as! Int == 1){
                 self.buttonOutlet.setTitle("Contacter Vendeur", for: .normal)
                 self.priceLabel.text = String(singleProduct["PrixFixe"] as! Double) + " DT"
-                self.typeSellLabel.text = "Prix de vente:"
             } else {
                 self.echerieLabel.isHidden = false
                 self.newAcutionTextField.isHidden = false
                 self.buttonOutlet.setTitle("Enchérir", for: .normal)
                 if(id_Seller == UserDefaults.standard.string(forKey: "idUser")){
-                    self.buttonOutlet.setTitle("Modifier État Enchère", for: .normal)
+                    self.buttonOutlet.setTitle("Mon Produit", for: .normal)
+                    self.buttonOutlet.isEnabled = false
                     self.addToFav.isEnabled = false
                 }
                 self.dateFinAuction = singleProduct["DateFin"] as? String
@@ -252,8 +269,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     @IBAction func validateTapped(_ sender: Any) {
-        if(buttonOutlet.title(for: .normal) == "Modifier État Enchère"){
-            print("ok")
+        if (buttonOutlet.title(for: .normal) == "Contacter Vendeur"){
+            performSegue(withIdentifier: "toCommentary", sender: nil)
         } else {
         
         
@@ -362,6 +379,17 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             }
             
         }
+        if segue.identifier == "toCommentary" {
+            
+            
+            if let destinationVC =  segue.destination as? UINavigationController {
+                if let childVC = destinationVC.topViewController as? CommentaryViewController {
+                    childVC.id = id
+                }
+            }
+            
+        }
+        
     }
     func getSellerId(){
         Alamofire.request(Common.Global.LOCAL + "/getproduct/" + String(self.id!)).responseJSON { response in
@@ -417,7 +445,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
                     print("Error !")
                 }
             }else{
-                let alert = UIAlertController(title: "Duplication", message: "le produit existe déjà dans vos favoris", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alerte", message: "le produit existe déjà dans vos favoris", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alert.addAction(action)
                 self.present(alert,animated: true,completion: nil)
@@ -426,10 +454,18 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource, UICol
             print("error")
         }
 
-
-
+    }
     
-}
+    func getTransaction(){
+        self.transactionData = []
+        Alamofire.request(Common.Global.LOCAL + "/gettransaction/" + UserDefaults.standard.string(forKey: "idUser")! + "/" + String(id!)).responseJSON { response in
+            if let responseFromRequest = response.result.value {
+                let responseJson = JSON(responseFromRequest)
+                self.transactionData =  responseJson.arrayValue
+            }
+        }
+    }
+    
 }
 
 
